@@ -14,7 +14,7 @@ router.post("/register", (req, res) => {
     });
   } else if (!email) {
     res.status(400).json({
-      error: "Please provide an email"
+      error: "Please provide an email address"
     });
   } else if (!username) {
     res.status(400).json({
@@ -46,7 +46,44 @@ router.post("/register", (req, res) => {
       })
       .catch(error => {
         res.status(400).json({
-          error: "This username already exists!"
+          error: "This username or email already exists!"
+        });
+      });
+  }
+});
+
+router.post("/login", (req, res) => {
+  const { username, password } = req.body;
+
+  if (!username) {
+    res.status(400).json({
+      error: "Please provide a username"
+    });
+  } else if (!password) {
+    res.status(400).json({
+      error: "Please provide a password"
+    });
+  } else {
+    db("users")
+      .returning("id")
+      .where({ username })
+      .first()
+      .then(user => {
+        if (!user) {
+          res.status(401).json({
+            error: "Username does not exist"
+          });
+        } else if (user && !bcrypt.compareSync(password, user.password)) {
+          res.status(401).json({
+            error: "The password is incorrect"
+          });
+        } else {
+          res.status(200).json(user);
+        }
+      })
+      .catch(error => {
+        res.status(500).json({
+          error: "There was an error while logging in."
         });
       });
   }
