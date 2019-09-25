@@ -3,6 +3,8 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 
 const db = require("../data/dbConfig.js");
+const tokenService = require("./token-service")
+
 
 router.post("/register", (req, res) => {
   const user = req.body;
@@ -16,13 +18,13 @@ router.post("/register", (req, res) => {
     res.status(400).json({
       error: "Please provide an email address"
     });
-  } else if (!username) {
+  } else if (!username || username.length < 7) {
     res.status(400).json({
-      error: "Please provide a username"
+      error: "Please provide a username that is at least six characters."
     });
-  } else if (!password) {
+  } else if (!password || password.length < 7 ) {
     res.status(400).json({
-      error: "Please provide a password"
+      error: "Please provide a password that is at least six characters."
     });
   } else {
     const hash = bcrypt.hashSync(password, 14);
@@ -36,7 +38,8 @@ router.post("/register", (req, res) => {
           .where({ id })
           .first()
           .then(user => {
-            res.status(201).json(user);
+            const token = tokenService.generateToken(user);
+            res.status(201).json({...user, token});
           })
           .catch(error => {
             res.status(500).json({
@@ -78,7 +81,8 @@ router.post("/login", (req, res) => {
             error: "The password is incorrect"
           });
         } else {
-          res.status(200).json(user);
+          const token = tokenService.generateToken(user);
+          res.status(200).json({...user, token});
         }
       })
       .catch(error => {
