@@ -115,4 +115,26 @@ router.put("/:id", restricted, (req, res) => {
   }
 });
 
+router.delete("/:id", restricted, (req, res) => {
+  const { id } = req.params;
+
+  db("entries")
+    .where({ id, user_id: req.decodedToken.subject })
+    .del()
+    .then(count => {
+      if (count > 0) {
+        res.status(200).json(count);
+      } else {
+        res
+          .status(404)
+          .json({ error: "You cannot access the journal entry with this specific id." });
+      }
+    })
+    .catch(error => {
+      res.status(500).json({
+        error: "The journal entry could not be removed."
+      });
+    });
+});
+
 module.exports = router;
