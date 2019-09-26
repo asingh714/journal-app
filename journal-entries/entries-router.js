@@ -71,21 +71,48 @@ router.get("/:id", restricted, (req, res) => {
       if (entry) {
         res.status(200).json(entry);
       } else {
-        res
-          .status(404)
-          .json({
-            error: "You cannot access the journal entry with this specific id."
-          });
+        res.status(404).json({
+          error: "You cannot access the journal entry with this specific id."
+        });
       }
     })
     .catch(error => {
-      res
-        .status(500)
-        .json({
-          error:
-            "The journal entry with the specified ID could not be retrieved."
-        });
+      res.status(500).json({
+        error: "The journal entry with the specified ID could not be retrieved."
+      });
     });
+});
+
+router.put("/:id", restricted, (req, res) => {
+  const { id } = req.params;
+  const changes = req.body;
+
+  if (!changes.date) {
+    res.status(400).json({
+      error: "Please provide a date for the journal entry."
+    });
+  } else {
+    db("entries")
+      .where({ id, user_id: req.decodedToken.subject })
+      .update(changes)
+      .then(count => {
+        if (count > 0) {
+          res.status(200).json(count);
+        } else {
+          res
+            .status(404)
+            .json({
+              error:
+                "You cannot access the journal entry with this specific id."
+            });
+        }
+      })
+      .catch(error => {
+        res
+          .status(500)
+          .json({ error: "The journal entry could not be modified." });
+      });
+  }
 });
 
 module.exports = router;
