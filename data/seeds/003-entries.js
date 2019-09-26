@@ -1,7 +1,7 @@
 exports.seed = function(knex) {
   return knex("entries").insert([
     {
-      date: 09-01-2019,
+      date: "09-01-2019",
       grateful_one: "My amazing breakfast sandwich",
       grateful_two: "Sleeping 8 hours",
       grateful_three: "Saying hello to my mother on the phone",
@@ -18,7 +18,7 @@ exports.seed = function(knex) {
       user_id: 1
     },
     {
-      date: 09-13-2019,
+      date: "09-13-2019",
       grateful_one: "Waking up before my alarm",
       grateful_two: "The birds chirping outside my window",
       grateful_three: "Access to the internet",
@@ -35,7 +35,7 @@ exports.seed = function(knex) {
       user_id: 2
     },
     {
-      date: 09-23-2019,
+      date: "09-23-2019",
       grateful_one: "Doing a kickboxing workout",
       grateful_two: "Being able to brush my teeth with clean water",
       grateful_three: "My new mattress",
