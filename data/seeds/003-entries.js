@@ -14,7 +14,8 @@ exports.seed = function(knex) {
       amazing_two: "I was able to complete all tasks on my todo list",
       amazing_three: "Solved a complicated problem at work",
       better: "I didn't get to foam roll some of the tightness in my upper back",
-      feel_two: 2
+      feel_two: 2,
+      user_id: 1
     },
     {
       date: 09-13-2019,
@@ -30,7 +31,8 @@ exports.seed = function(knex) {
       amazing_two: "I completed a work deadline ahead of time",
       amazing_three: "I read 50 pages from a new book I bought",
       better: "I did not get a chance to go for a jog this morning. I would have liked to do do that",
-      feel_two: 4
+      feel_two: 4,
+      user_id: 2
     },
     {
       date: 09-23-2019,
@@ -46,7 +48,8 @@ exports.seed = function(knex) {
       amazing_two: "Had a great class today",
       amazing_three: "Did not have any cavities during my dentist appointment earlier",
       better: "I accidentally cut off someone while driving. Wish I had a chance to apologize",
-      feel_two: 5
+      feel_two: 5,
+      user_id: 1
     }
   ]);
 };

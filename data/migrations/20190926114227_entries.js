@@ -26,6 +26,14 @@ exports.up = function(knex) {
     table.string("better")
 
     table.integer("feel_two")
+
+    table.integer("user_id")
+    .unsigned()
+    .notNullable()
+    .references("id")
+    .inTable("users")
+    .onDelete("CASCADE")
+    .onUpdate("CASCADE");
   })
 };
 
