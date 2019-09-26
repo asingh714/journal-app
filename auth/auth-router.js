@@ -3,12 +3,11 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 
 const db = require("../data/dbConfig.js");
-const tokenService = require("./token-service")
-
+const tokenService = require("./token-service");
 
 router.post("/register", (req, res) => {
   const user = req.body;
-  let { name, email, username, password } = req.body;
+  const { name, email, username, password } = req.body;
 
   if (!name) {
     res.status(400).json({
@@ -22,7 +21,7 @@ router.post("/register", (req, res) => {
     res.status(400).json({
       error: "Please provide a username that is at least six characters."
     });
-  } else if (!password || password.length < 7 ) {
+  } else if (!password || password.length < 7) {
     res.status(400).json({
       error: "Please provide a password that is at least six characters."
     });
@@ -39,7 +38,9 @@ router.post("/register", (req, res) => {
           .first()
           .then(user => {
             const token = tokenService.generateToken(user);
-            res.status(201).json({username, token});
+            res
+              .status(201)
+              .json({ id: user.id, username: user.username, token });
           })
           .catch(error => {
             res.status(500).json({
@@ -68,7 +69,7 @@ router.post("/login", (req, res) => {
     });
   } else {
     db("users")
-      .returning("id")
+      // .returning("id")
       .where({ username })
       .first()
       .then(user => {
@@ -82,7 +83,9 @@ router.post("/login", (req, res) => {
           });
         } else {
           const token = tokenService.generateToken(user);
-          res.status(200).json({username, token});
+          res
+            .status(200)
+            .json({ message: `${user.username} is logged in.`, token });
         }
       })
       .catch(error => {
