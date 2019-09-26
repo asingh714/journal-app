@@ -1,13 +1,12 @@
 /* 
-random quote 
 
-data 
-grateful 3
-great 3 
-daily affirmation 
-how i feel 
+date - ?  
+grateful 3 - string
+great 3 - string
+daily affirmation - string  
+how i feel - number 
 
-amazing 3
-better 3
-how i feel
+amazing 3 - string 
+better 1 - string 
+how i feel - number
 */
