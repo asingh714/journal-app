@@ -62,4 +62,30 @@ router.get("/", restricted, (req, res) => {
     });
 });
 
+router.get("/:id", restricted, (req, res) => {
+  const { id } = req.params;
+  db("entries")
+    .where({ id, user_id: req.decodedToken.subject })
+    .first()
+    .then(entry => {
+      if (entry) {
+        res.status(200).json(entry);
+      } else {
+        res
+          .status(404)
+          .json({
+            error: "You cannot access the journal entry with this specific id."
+          });
+      }
+    })
+    .catch(error => {
+      res
+        .status(500)
+        .json({
+          error:
+            "The journal entry with the specified ID could not be retrieved."
+        });
+    });
+});
+
 module.exports = router;
