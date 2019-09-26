@@ -39,7 +39,7 @@ router.post("/register", (req, res) => {
           .first()
           .then(user => {
             const token = tokenService.generateToken(user);
-            res.status(201).json({...user, token});
+            res.status(201).json({username, token});
           })
           .catch(error => {
             res.status(500).json({
@@ -82,7 +82,7 @@ router.post("/login", (req, res) => {
           });
         } else {
           const token = tokenService.generateToken(user);
-          res.status(200).json({...user, token});
+          res.status(200).json({username, token});
         }
       })
       .catch(error => {
