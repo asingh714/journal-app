@@ -5,6 +5,7 @@ const db = require("../data/dbConfig");
 
 router.get("/", (req, res) => {
   db("quotes")
+  .returning("id")
   .then(quotes => {
     res.status(200).json(quotes);
   })

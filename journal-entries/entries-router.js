@@ -1,16 +1,3 @@
-/* 
-
-date - ?  
-grateful 3 - string
-great 3 - string
-daily affirmation - string  
-how i feel - number 
-
-amazing 3 - string 
-better 1 - string 
-how i feel - number
-*/
-
 const express = require("express");
 const router = express.Router();
 
@@ -27,6 +14,7 @@ router.post("/", restricted, (req, res) => {
   } else {
     entry.user_id = req.decodedToken.subject;
     db("entries")
+      .returning("id")
       .insert(entry)
       .then(ids => {
         const id = ids[0];
@@ -48,6 +36,7 @@ router.post("/", restricted, (req, res) => {
 
 router.get("/", restricted, (req, res) => {
   db("entries")
+    .returning("id")
     .where({ user_id: req.decodedToken.subject })
     .then(entries => {
       if (!entries) {
@@ -65,6 +54,7 @@ router.get("/", restricted, (req, res) => {
 router.get("/:id", restricted, (req, res) => {
   const { id } = req.params;
   db("entries")
+    .returning("id")
     .where({ id, user_id: req.decodedToken.subject })
     .first()
     .then(entry => {
@@ -93,18 +83,16 @@ router.put("/:id", restricted, (req, res) => {
     });
   } else {
     db("entries")
+      .returning("id")
       .where({ id, user_id: req.decodedToken.subject })
       .update(changes)
       .then(count => {
         if (count > 0) {
           res.status(200).json(count);
         } else {
-          res
-            .status(404)
-            .json({
-              error:
-                "You cannot access the journal entry with this specific id."
-            });
+          res.status(404).json({
+            error: "You cannot access the journal entry with this specific id."
+          });
         }
       })
       .catch(error => {
@@ -121,13 +109,14 @@ router.delete("/:id", restricted, (req, res) => {
   db("entries")
     .where({ id, user_id: req.decodedToken.subject })
     .del()
+    .returning("id")
     .then(count => {
       if (count > 0) {
         res.status(200).json(count);
       } else {
-        res
-          .status(404)
-          .json({ error: "You cannot access the journal entry with this specific id." });
+        res.status(404).json({
+          error: "You cannot access the journal entry with this specific id."
+        });
       }
     })
     .catch(error => {
