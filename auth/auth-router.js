@@ -69,7 +69,7 @@ router.post("/login", (req, res) => {
     });
   } else {
     db("users")
-      // .returning("id")
+      .returning("id")
       .where({ username })
       .first()
       .then(user => {
