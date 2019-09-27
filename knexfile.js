@@ -1,3 +1,12 @@
+require("dotenv").config();
+
+const localPg = {
+  host: 'localhost',
+  database: 'journal',
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+};
+const productionDbConnection = process.env.DATABASE_URL || localPg;
 
 module.exports = {
 
@@ -19,4 +28,15 @@ module.exports = {
       },
     },
   },
+
+  production: {
+    client: "pg",
+    connection: productionDbConnection,
+    migrations: {
+      directory: './data/migrations',
+    },
+    seeds: {
+      directory: './data/seeds',
+    },
+  }
 };
