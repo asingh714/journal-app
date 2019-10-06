@@ -12,15 +12,18 @@ const useForm = callback => {
   const handleChange = event => {
     event.persist();
 
-    setValues(values => ({
+    setValues({
       ...values,
       [event.target.name]: event.target.value
-    }));
+    });
   };
 
-  return {
+  return [
+    values,
     handleChange,
     handleSubmit,
-    values
-  };
+  ]
 };
+
+
+export default useForm;
