@@ -55,6 +55,15 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+a {
+	text-decoration: none;
+}
+
+// a:visited {
+// 	color: inherit;
+// }
+
 :root {
-	
+	--marzipan: #F8E3A3; // Light Yellow
+	--dove-gray: #626262; // Grey for Text
 }

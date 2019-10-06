@@ -1,18 +1,26 @@
-import React from 'react'
+import React from "react";
 import { NavLink } from "react-router-dom";
 
+import logo from "../../assets/Dark_Logo.png";
+
+import "./header.styles.scss";
 
 const Header = () => {
   return (
     <header>
-      {/* logo */}
-      <nav>
-        <NavLink exact to="/">Home</NavLink>
-        <NavLink to="/journal">Journal</NavLink>
-        <NavLink to="/signin">Login / Sign Up</NavLink>
-      </nav>
+      <div className="yellow-line"></div>
+      <div className="logo-nav-container">
+        <img src={logo} alt="MyJournal Logo" className="logo"/>
+        <nav>
+          <NavLink exact to="/">
+            Home
+          </NavLink>
+          <NavLink to="/journal">Journal</NavLink>
+          <NavLink to="/signin">Login / Sign Up</NavLink>
+        </nav>
+      </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

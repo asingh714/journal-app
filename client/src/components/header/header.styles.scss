@@ -1,0 +1,45 @@
+header {
+  .yellow-line {
+    height: 0.5rem;
+    width: 100%;
+    background-color: var(--marzipan);
+  }
+
+  .logo-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 100rem;
+    margin: auto;
+    margin-top: 3.2rem;
+    margin-bottom: 4rem;
+
+    .logo {
+      width: 200px;
+    }
+
+    nav {
+      font-size: 1.8rem;
+      color: var(--dove-gray);
+
+      a {
+        padding: 1rem 2rem;
+        color: var(--dove-gray);
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &.active {
+          font-weight: bold;
+        }
+
+        &:not(:last-child) {
+          margin-right: 1rem;
+        }
+
+      }
+    }
+  }
+}
