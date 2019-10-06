@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 
 import reducer from "./redux/reducers";
 
-import "./index.css";
+import "./index.scss";
 import App from "./App";
 
 const middlewares = [];
