@@ -1,75 +1,87 @@
 import React from "react";
+import { connect } from "react-redux";
 
+import { loginUser } from "../../redux/actions/user.actions";
 import useForm from "../../customHooks/useForm";
 
 import "./log-in-and-sign-up.component.styles.scss";
 
-const LogInAndSignUp = () => {
-  const handleFunc = event => {
-    event.preventDefault();
-    console.log("CLICKED");
+const LogInAndSignUp = ({ loginUser }) => {
+  const handleLogin = event => {
+    if (event) event.preventDefault();
+    loginUser(loginInput);
   };
 
-  const [inputValues, handleChanges, handleSubmit] = useForm(handleFunc);
+  const handleSignin = event => {
+    if (event) event.preventDefault();
+    console.log("Clicked");
+  };
+
+  const [loginInput, handleLoginChanges, handleLoginSubmit] = useForm(
+    handleLogin
+  );
+  const [signinInput, handleSigninChanges, handleSigninSubmit] = useForm(
+    handleSignin
+  );
 
   return (
     <div className="page-container">
       <div className="log-in-sign-in-container">
-        <form className="log-in-container" onSubmit={handleSubmit}>
+        <form className="log-in-container" onSubmit={handleLoginSubmit}>
           <h2>Login</h2>
           <input
             name="username"
             placeholder="Username"
-            onChange={handleChanges}
+            onChange={handleLoginChanges}
             type="text"
-            value={inputValues.username || ""}
+            value={loginInput.username || ""}
           />
           <input
             name="password"
             placeholder="Password"
-            onChange={handleChanges}
+            onChange={handleLoginChanges}
             type="password"
-            value={inputValues.password || ""}
+            value={loginInput.password || ""}
           />
           <button type="submit">Login</button>
         </form>
 
-        <form className="sign-in-container">
+        <form className="sign-in-container" onSubmit={handleSigninSubmit}>
           <h2>Sign Up</h2>
           <input
             name="name"
             placeholder="Name"
-            onChange={handleChanges}
+            onChange={handleSigninChanges}
             type="text"
-            value={inputValues.name || ""}
+            value={signinInput.name || ""}
           />
           <input
             name="email"
             placeholder="Email"
-            onChange={handleChanges}
+            onChange={handleSigninChanges}
             type="email"
-            value={inputValues.email || ""}
+            value={signinInput.email || ""}
           />
           <input
-            name="usernameTwo"
+            name="username"
             placeholder="Username"
-            onChange={handleChanges}
+            onChange={handleSigninChanges}
             type="text"
-            value={inputValues.usernameTwo || ""}
+            value={signinInput.username || ""}
           />
           <input
-            name="passwordTwo"
+            name="password"
             placeholder="Password"
-            onChange={handleChanges}
+            onChange={handleSigninChanges}
             type="password"
-            value={inputValues.passwordTwo || ""}
+            value={signinInput.password || ""}
           />
           <input
             name="confirmPassword"
             placeholder="Confirm Password"
-            onChange={handleChanges}
+            onChange={handleSigninChanges}
             type="password"
-            value={inputValues.confirmPassword || ""}
+            value={signinInput.confirmPassword || ""}
           />
           <button>Submit</button>
         </form>
@@ -78,4 +90,7 @@ const LogInAndSignUp = () => {
   );
 };
 
-export default LogInAndSignUp;
+export default connect(
+  null,
+  { loginUser }
+)(LogInAndSignUp);
