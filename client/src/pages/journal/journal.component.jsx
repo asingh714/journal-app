@@ -6,6 +6,7 @@ import Entry from "../../components/entry/entry.component";
 import { fetchEntries } from "../../redux/actions/entries.actions";
 
 const Journal = ({ fetchEntries, entries }) => {
+  console.log("Journal", entries);
   useEffect(() => {
     fetchEntries();
   }, [fetchEntries]);
