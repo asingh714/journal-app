@@ -6,10 +6,11 @@ import useForm from "../../customHooks/useForm";
 
 import "./log-in-and-sign-up.component.styles.scss";
 
-const LogInAndSignUp = ({ loginUser }) => {
+const LogInAndSignUp = ({ loginUser, history }) => {
   const handleLogin = event => {
     if (event) event.preventDefault();
     loginUser(loginInput);
+    history.push('/journal');
   };
 
   const handleSignin = event => {
