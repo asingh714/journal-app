@@ -10,11 +10,9 @@ export const fetchEntries = () => dispatch => {
   axiosWithAuth()
     .get("/entries")
     .then(res => {
-      console.log(res);
-      dispatch({ type: ENTRIES_FETCH_SUCCESS });
+      dispatch({ type: ENTRIES_FETCH_SUCCESS, payload: res.data });
     })
     .catch(error => {
-      console.log(error);
       dispatch({ type: ENTRIES_FETCH_FAILURE });
     });
 };
