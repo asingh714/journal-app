@@ -14,7 +14,7 @@ const initialState = {
   error: ""
 };
 
-const reducers = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_LOGIN_START:
     case USER_REGISTER_START:
@@ -48,4 +48,4 @@ const reducers = (state = initialState, action) => {
   }
 };
 
-export default reducers;
+export default userReducer;
