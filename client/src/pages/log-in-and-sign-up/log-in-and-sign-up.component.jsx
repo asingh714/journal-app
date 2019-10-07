@@ -1,21 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { loginUser } from "../../redux/actions/user.actions";
+import { loginUser, registerUser } from "../../redux/actions/user.actions";
 import useForm from "../../customHooks/useForm";
 
 import "./log-in-and-sign-up.component.styles.scss";
 
-const LogInAndSignUp = ({ loginUser, history }) => {
+const LogInAndSignUp = ({ loginUser, registerUser, history }) => {
   const handleLogin = event => {
     if (event) event.preventDefault();
     loginUser(loginInput);
-    history.push('/journal');
+    history.push("/journal");
   };
 
   const handleSignin = event => {
     if (event) event.preventDefault();
-    console.log("Clicked");
+    registerUser(signinInput)
+    history.push("/journal");
   };
 
   const [loginInput, handleLoginChanges, handleLoginSubmit] = useForm(
@@ -77,13 +78,6 @@ const LogInAndSignUp = ({ loginUser, history }) => {
             type="password"
             value={signinInput.password || ""}
           />
-          <input
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            onChange={handleSigninChanges}
-            type="password"
-            value={signinInput.confirmPassword || ""}
-          />
           <button>Submit</button>
         </form>
       </div>
@@ -93,5 +87,5 @@ const LogInAndSignUp = ({ loginUser, history }) => {
 
 export default connect(
   null,
-  { loginUser }
+  { loginUser, registerUser }
 )(LogInAndSignUp);
