@@ -41,9 +41,26 @@ export const ADD_JOURNAL_ENTRY_FAILURE = "ADD_JOURNAL_ENTRY_FAILURE";
 export const addJournalEntry = journalEntry => dispatch => {
   dispatch({ type: ADD_JOURNAL_ENTRY_START });
   axiosWithAuth()
-    .post("entries", journalEntry)
+    .post("/entries", journalEntry)
     .then(res => {
       dispatch({ type: ADD_JOURNAL_ENTRY_SUCCESS, payload: res.data });
+    })
+    .catch(error => {
+      dispatch({ type: ADD_JOURNAL_ENTRY_FAILURE });
+    });
+};
+
+export const DELETE_JOURNAL_START = "DELETE_JOURNAL_START";
+export const DELETE_JOURNAL_SUCCESS = "DELETE_JOURNAL_SUCCESS";
+export const DELETE_JOURNAL_FAILURE = "DELETE_JOURNAL_FAILURE";
+
+export const deleteJournalEntry = id => dispatch => {
+  dispatch({ type: DELETE_JOURNAL_START });
+
+  axiosWithAuth()
+    .delete(`/entries/${id}`)
+    .then(res => {
+      dispatch({ type: DELETE_JOURNAL_SUCCESS, payload: id });
     })
     .catch(error => {
       dispatch({ type: ADD_JOURNAL_ENTRY_FAILURE });

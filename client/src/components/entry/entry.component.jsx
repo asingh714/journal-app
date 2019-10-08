@@ -24,7 +24,7 @@ const Entry = props => {
       </div>
       <button onClick={toggleDelete}>Delete</button>
       <button>Edit</button>
-      {isVisible && <DeleteModal toggleDelete={toggleDelete} />}
+      {isVisible && <DeleteModal toggleDelete={toggleDelete} deleteId={props.entry.id}/>}
     </>
   );
 };

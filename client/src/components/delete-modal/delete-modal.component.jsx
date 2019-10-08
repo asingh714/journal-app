@@ -1,13 +1,23 @@
-import React from 'react'
+import React from "react";
+import { connect } from "react-redux";
 
-const DeleteModal = ({toggleDelete}) => {
+import { deleteJournalEntry } from "../../redux/actions/entries.actions";
+
+const DeleteModal = ({ toggleDelete, deleteJournalEntry, deleteId }) => {
+  const handleDelete = () => {
+    deleteJournalEntry(deleteId);
+  };
+
   return (
     <>
-     <span>Are you sure you want to delete this journal entry?</span> 
+      <span>Are you sure you want to delete this journal entry?</span>
       <button onClick={toggleDelete}>No</button>
-      <button>Yes</button>
+      <button onClick={handleDelete}>Yes</button>
     </>
-  )
-}
+  );
+};
 
-export default DeleteModal;
+export default connect(
+  null,
+  { deleteJournalEntry }
+)(DeleteModal);
