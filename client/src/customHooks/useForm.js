@@ -15,7 +15,7 @@ const useForm = callback => {
     setValues({
       ...values,
       [event.target.name]:
-        event.target.name === "feel_one" || "feel_two"
+        event.target.name === "feel_one" || event.target.name === "feel_two"
           ? parseInt(event.target.value)
           : event.target.value
     });

@@ -82,7 +82,7 @@ const AddJournalEntry = () => {
             name="feel_one"
             onChange={handleChanges}
             type="radio"
-            value={parseInt(1)}
+            value={1}
           />
           <span role="img" aria-label="pouting face">
             😡
@@ -100,6 +100,138 @@ const AddJournalEntry = () => {
             😔
           </span>
         </label>
+
+        <label>
+          <input
+            name="feel_one"
+            onChange={handleChanges}
+            type="radio"
+            value={3}
+          />
+          <span role="img" aria-label="neutral face">
+            😐
+          </span>
+        </label>
+
+        <label>
+          <input
+            name="feel_one"
+            onChange={handleChanges}
+            type="radio"
+            value={4}
+          />
+          <span role="img" aria-label="slightly smiling face">
+            🙂
+          </span>
+        </label>
+
+        <label>
+          <input
+            name="feel_one"
+            onChange={handleChanges}
+            type="radio"
+            value={5}
+          />
+          <span role="img" aria-label="grinning face with open mouth">
+            😃
+          </span>
+        </label>
+
+        <h2>Evening</h2>
+        <span>Three amazing things that happened today</span>
+        <span>1: </span>
+        <input
+          name="amazing_one"
+          onChange={handleChanges}
+          type="text"
+          value={addFormInput.amazing_one || ""}
+        />
+        <span>2: </span>
+        <input
+          name="amazing_two"
+          onChange={handleChanges}
+          type="text"
+          value={addFormInput.amazing_two || ""}
+        />
+        <span>3: </span>
+        <input
+          name="amazing_three"
+          onChange={handleChanges}
+          type="text"
+          value={addFormInput.amazing_three || ""}
+        />
+
+        <span>What could have made today even better?</span>
+        <input
+          name="better"
+          onChange={handleChanges}
+          type="text"
+          value={addFormInput.better || ""}
+        />
+
+        <span>How I feel right now:</span>
+        <label>
+          <input
+            name="feel_two"
+            onChange={handleChanges}
+            type="radio"
+            value={1}
+          />
+          <span role="img" aria-label="pouting face">
+            😡
+          </span>
+        </label>
+
+        <label>
+          <input
+            name="feel_two"
+            onChange={handleChanges}
+            type="radio"
+            value={2}
+          />
+          <span role="img" aria-label="sad pensive face">
+            😔
+          </span>
+        </label>
+
+        <label>
+          <input
+            name="feel_two"
+            onChange={handleChanges}
+            type="radio"
+            value={3}
+          />
+          <span role="img" aria-label="neutral face">
+            😐
+          </span>
+        </label>
+
+        <label>
+          <input
+            name="feel_two"
+            onChange={handleChanges}
+            type="radio"
+            value={4}
+          />
+          <span role="img" aria-label="slightly smiling face">
+            🙂
+          </span>
+        </label>
+
+        <label>
+          <input
+            name="feel_two"
+            onChange={handleChanges}
+            type="radio"
+            value={5}
+          />
+          <span role="img" aria-label="grinning face with open mouth">
+            😃
+          </span>
+        </label>
+
+        <button>Cancel</button>
+        <button>Save</button>
       </form>
     </>
   );
