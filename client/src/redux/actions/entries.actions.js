@@ -33,3 +33,20 @@ export const fetchSingleEntry = id => dispatch => {
       dispatch({ type: SINGLE_ENTRY_FETCH_FAILURE });
     });
 };
+
+export const ADD_JOURNAL_ENTRY_START = "ADD_JOURNAL_ENTRY_START";
+export const ADD_JOURNAL_ENTRY_SUCCESS = "ADD_JOURNAL_ENTRY_SUCCESS";
+export const ADD_JOURNAL_ENTRY_FAILURE = "ADD_JOURNAL_ENTRY_FAILURE";
+
+export const addJournalEntry = journalEntry => dispatch => {
+  dispatch({ type: ADD_JOURNAL_ENTRY_START });
+  axiosWithAuth()
+    .post("entries", journalEntry)
+    .then(res => {
+      console.log(res);
+      dispatch({ type: ADD_JOURNAL_ENTRY_SUCCESS });
+    })
+    .catch(error => {
+      dispatch({ type: ADD_JOURNAL_ENTRY_FAILURE });
+    });
+};
