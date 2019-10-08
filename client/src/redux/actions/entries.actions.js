@@ -27,8 +27,7 @@ export const fetchSingleEntry = id => dispatch => {
   axiosWithAuth()
     .get(`/entries/${id}`)
     .then(res => {
-      console.log(res);
-      dispatch({ type: SINGLE_ENTRY_FETCH_SUCCESS });
+      dispatch({ type: SINGLE_ENTRY_FETCH_SUCCESS, payload: res.data });
     })
     .catch(error => {
       dispatch({ type: SINGLE_ENTRY_FETCH_FAILURE });
