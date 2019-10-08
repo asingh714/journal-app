@@ -6,7 +6,7 @@ import Entry from "../../components/entry/entry.component";
 import { fetchEntries } from "../../redux/actions/entries.actions";
 
 const Journal = ({ fetchEntries, entries, ...props }) => {
-  console.log("Journal", entries);
+
   useEffect(() => {
     fetchEntries();
   }, [fetchEntries]);
@@ -25,7 +25,7 @@ const Journal = ({ fetchEntries, entries, ...props }) => {
       <h2>Insert Month Here</h2>
       <div onClick={routeToAddJournalEntry}>Add Journal Entry</div>
       {entries.map(entry => (
-        <Entry key={entry.id} entry={entry} />
+        <Entry key={entry.id} entry={entry} {...props} />
       ))}
     </div>
   );
