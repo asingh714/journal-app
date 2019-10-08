@@ -1,16 +1,23 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import useForm from "../../customHooks/useForm";
+import { addJournalEntry } from "../../redux/actions/entries.actions";
 
-const AddJournalEntry = () => {
+const AddJournalEntry = ({ addJournalEntry, ...props }) => {
   const handleAddJournalEntry = event => {
-    event.preventDefault();
-    console.log("Clicked!");
+    if (event) event.preventDefault();
+    addJournalEntry(addFormInput);
   };
 
   const [addFormInput, handleChanges, handleSubmit] = useForm(
     handleAddJournalEntry
   );
+
+  const routeToJournalPage = e => {
+    e.preventDefault();
+    props.history.push("/journal");
+  };
 
   return (
     <>
@@ -230,11 +237,14 @@ const AddJournalEntry = () => {
           </span>
         </label>
 
-        <button>Cancel</button>
-        <button>Save</button>
+        <button onClick={routeToJournalPage}>Cancel</button>
+        <button onClick={handleSubmit}>Save</button>
       </form>
     </>
   );
 };
 
-export default AddJournalEntry;
+export default connect(
+  null,
+  { addJournalEntry }
+)(AddJournalEntry);

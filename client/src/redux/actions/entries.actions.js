@@ -43,8 +43,7 @@ export const addJournalEntry = journalEntry => dispatch => {
   axiosWithAuth()
     .post("entries", journalEntry)
     .then(res => {
-      console.log(res);
-      dispatch({ type: ADD_JOURNAL_ENTRY_SUCCESS });
+      dispatch({ type: ADD_JOURNAL_ENTRY_SUCCESS, payload: res.data });
     })
     .catch(error => {
       dispatch({ type: ADD_JOURNAL_ENTRY_FAILURE });
