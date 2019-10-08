@@ -14,16 +14,14 @@ const useForm = callback => {
 
     setValues({
       ...values,
-      [event.target.name]: event.target.value
+      [event.target.name]:
+        event.target.name === "feel_one" || "feel_two"
+          ? parseInt(event.target.value)
+          : event.target.value
     });
   };
 
-  return [
-    values,
-    handleChange,
-    handleSubmit,
-  ]
+  return [values, handleChange, handleSubmit];
 };
-
 
 export default useForm;

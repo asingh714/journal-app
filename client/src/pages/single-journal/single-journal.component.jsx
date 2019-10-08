@@ -43,17 +43,56 @@ const SingleJournal = ({ entry, fetchSingleEntry, ...props }) => {
       <span>How I feel right now:</span>
       <span>{feel_one}</span>
 
-      <input type="radio" id="emoji_one" checked={feel_one === 1 ? true : false}/>
-      <label htmlFor="emoji_one">😡</label>
-      <input type="radio" id="emoji_two" checked={feel_one === 2 ? true : false}/>
-      <label htmlFor="emoji_two">😔</label>
-      <input type="radio" id="emoji_three" checked={feel_one === 3 ? true : false}/>
-      <label htmlFor="emoji_three">😐</label>
-      <input type="radio" id="emoji_four"checked={feel_one === 4 ? true : false}/>
-      <label htmlFor="emoji_four">🙂</label>
-      <input type="radio" id="emoji_five" checked={feel_one === 5 ? true : false}/>
-      <label htmlFor="emoji_five">😃</label>
-
+      <input
+        type="radio"
+        id="emoji_one"
+        checked={feel_one === 1 ? true : false}
+      />
+      <label htmlFor="emoji_one">
+        <span role="img" aria-label="pouting face">
+          😡
+        </span>
+      </label>
+      <input
+        type="radio"
+        id="emoji_two"
+        checked={feel_one === 2 ? true : false}
+      />
+      <label htmlFor="emoji_two">
+        <span role="img" aria-label="sad pensive face">
+          😔
+        </span>
+      </label>
+      <input
+        type="radio"
+        id="emoji_three"
+        checked={feel_one === 3 ? true : false}
+      />
+      <label htmlFor="emoji_three">
+        <span role="img" aria-label="neutral face">
+          😐
+        </span>
+      </label>
+      <input
+        type="radio"
+        id="emoji_four"
+        checked={feel_one === 4 ? true : false}
+      />
+      <label htmlFor="emoji_four">
+        <span role="img" aria-label="slightly smiling face">
+          🙂
+        </span>
+      </label>
+      <input
+        type="radio"
+        id="emoji_five"
+        checked={feel_one === 5 ? true : false}
+      />
+      <label htmlFor="emoji_five">
+        <span role="img" aria-label="grinning face with open mouth">
+          😃
+        </span>
+      </label>
 
       <h2>Evening</h2>
       <span>Three amazing things that happened today</span>
@@ -64,21 +103,59 @@ const SingleJournal = ({ entry, fetchSingleEntry, ...props }) => {
       <span>{better}</span>
       <span>How I feel right now:</span>
       <span>{feel_two}</span>
-      <input type="radio" id="emoji_one" checked={feel_two === 1 ? true : false}/>
-      <label htmlFor="emoji_one">😡</label>
-      <input type="radio" id="emoji_two" checked={feel_two === 2 ? true : false}/>
-      <label htmlFor="emoji_two">😔</label>
-      <input type="radio" id="emoji_three" checked={feel_two === 3 ? true : false}/>
-      <label htmlFor="emoji_three">😐</label>
-      <input type="radio" id="emoji_four"checked={feel_two === 4 ? true : false}/>
-      <label htmlFor="emoji_four">🙂</label>
-      <input type="radio" id="emoji_five" checked={feel_two === 5 ? true : false}/>
-      <label htmlFor="emoji_five">😃</label>
+      <input
+        type="radio"
+        id="emoji_one"
+        checked={feel_two === 1 ? true : false}
+      />
+      <label htmlFor="emoji_one">
+        <span role="img" aria-label="pouting face">
+          😡
+        </span>
+      </label>
+      <input
+        type="radio"
+        id="emoji_two"
+        checked={feel_two === 2 ? true : false}
+      />
+      <label htmlFor="emoji_two">
+        <span role="img" aria-label="sad pensive face">
+          😔
+        </span>
+      </label>
+      <input
+        type="radio"
+        id="emoji_three"
+        checked={feel_two === 3 ? true : false}
+      />
+      <label htmlFor="emoji_three">
+        <span role="img" aria-label="neutral face">
+          😐
+        </span>
+      </label>
+      <input
+        type="radio"
+        id="emoji_four"
+        checked={feel_two === 4 ? true : false}
+      />
+      <label htmlFor="emoji_four">
+        <span role="img" aria-label="slightly smiling face">
+          🙂
+        </span>
+      </label>
+      <input
+        type="radio"
+        id="emoji_five"
+        checked={feel_two === 5 ? true : false}
+      />
+      <label htmlFor="emoji_five">
+        <span role="img" aria-label="grinning face with open mouth">
+          😃
+        </span>
+      </label>
     </>
   );
 };
-
-
 
 const mapStateToProps = state => {
   return {
