@@ -66,3 +66,20 @@ export const deleteJournalEntry = id => dispatch => {
       dispatch({ type: ADD_JOURNAL_ENTRY_FAILURE });
     });
 };
+
+export const EDIT_JOURNAL_START = "EDIT_JOURNAL_START";
+export const EDIT_JOURNAL_SUCCESS = "EDIT_JOURNAL_SUCCESS";
+export const EDIT_JOURNAL_FAILURE = "EDIT_JOURNAL_FAILURE";
+
+export const editJournalEntry = (id, journalEntry) => dispatch => {
+  dispatch({ type: EDIT_JOURNAL_START })
+
+  axiosWithAuth()
+  .edit(`/entries/${id}`, journalEntry)
+  .then(res => {
+    console.log(res)
+  })
+  .catch(error => {
+    dispatch({ type: EDIT_JOURNAL_FAILURE })
+  })
+}

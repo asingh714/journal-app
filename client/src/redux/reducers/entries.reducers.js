@@ -10,20 +10,25 @@ import {
   ADD_JOURNAL_ENTRY_FAILURE,
   DELETE_JOURNAL_START,
   DELETE_JOURNAL_SUCCESS,
-  DELETE_JOURNAL_FAILURE
+  DELETE_JOURNAL_FAILURE,
+  EDIT_JOURNAL_START,
+  EDIT_JOURNAL_SUCCESS,
+  EDIT_JOURNAL_FAILURE
 } from "../actions/entries.actions";
 
 const initialState = {
   entry: {},
-  isFetchingSingleEntry: false,
   entries: [],
   isFetching: false,
+  isFetchingSingleEntry: false,
+  isAddingEntry: false,
+  isDeletingEntry: false,
+  isEditingEntry: false,
   error: "",
   singleEntryError: "",
   addingError: "",
-  isAddingEntry: false,
-  isDeletingEntry: false,
-  deletingError: ""
+  deletingError: "",
+  editingError: ""
 };
 
 const entriesReducer = (state = initialState, action) => {
@@ -107,6 +112,24 @@ const entriesReducer = (state = initialState, action) => {
         ...state,
         isDeletingEntry: false,
         deletingError: "There was an error with deleting"
+      }
+    case EDIT_JOURNAL_START: 
+      return {
+        ...state,
+        isEditingEntry: true,
+        editingError: ""
+      }
+    case EDIT_JOURNAL_SUCCESS:
+      return {
+        ...state,
+        isEditingEntry: false,
+        // entries
+      }
+    case EDIT_JOURNAL_FAILURE:
+      return {
+        ...state,
+        isEditingEntry: false,
+        editingError: "There was an error with editing"
       }
     default:
       return state;
