@@ -15,6 +15,11 @@ const Entry = props => {
     props.history.push(`/journal/${id}`);
   };
 
+  const routeToEditSpecificJournal = (e, id) => {
+    e.preventDefault();
+    props.history.push(`/edit-journal-entry/${id}`);
+  };
+
   return (
     <>
       <div onClick={e => routeToSpecifcJournalPage(e, props.entry.id)}>
@@ -23,8 +28,12 @@ const Entry = props => {
         <span>Evening: {props.entry.feel_two}</span>
       </div>
       <button onClick={toggleDelete}>Delete</button>
-      <button>Edit</button>
-      {isVisible && <DeleteModal toggleDelete={toggleDelete} deleteId={props.entry.id}/>}
+      <button onClick={e => routeToEditSpecificJournal(e, props.entry.id)}>
+        Edit
+      </button>
+      {isVisible && (
+        <DeleteModal toggleDelete={toggleDelete} deleteId={props.entry.id} />
+      )}
     </>
   );
 };
