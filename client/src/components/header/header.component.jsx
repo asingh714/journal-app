@@ -10,7 +10,9 @@ const Header = () => {
     <header>
       <div className="yellow-line"></div>
       <div className="logo-nav-container">
-        <img src={logo} alt="MyJournal Logo" className="logo"/>
+        <NavLink exact to="/">
+          <img src={logo} alt="MyJournal Logo" className="logo" />
+        </NavLink>
         <nav>
           <NavLink exact to="/">
             Home
