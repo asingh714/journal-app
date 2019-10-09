@@ -10,6 +10,7 @@ import Heart from "../../assets/icon-heart.svg";
 import Lock from "../../assets/icon-lock.svg";
 import Application from "../../assets/icon-application.svg";
 import Layers from "../../assets/icon-layers.svg";
+import Testimonial from "../../assets/testimonial-image.png";
 
 import "./homepage.styles.scss";
 
@@ -88,6 +89,22 @@ const Homepage = () => {
           </BenefitCard>
         </div>
       </div>
+
+      <div className="testimonial-section">
+        <h2>Meet our customers</h2>
+        <div className="testimonial-img-quote">
+          <img src={Testimonial} alt="Happy Customer" />
+          <span className="quote">
+            “MyJournal has completed changed the way I function on a day to day
+            basis. I look forward to my journal entries each morning and
+            evening!“
+            <br />
+            <span className="bold">— Marrisa Stevens</span>
+          </span>
+        </div>
+      </div>
+
+      
     </>
   );
 };
