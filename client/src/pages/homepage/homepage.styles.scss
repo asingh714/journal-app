@@ -3,22 +3,36 @@
   top: 5px;
   background-image: url(../../assets/Hero.png);
   background-size: cover;
-  height: 95vh;
+  height: 90vh;
   width: 100%;
   z-index: -1;
-  
+
   .hero-text-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 17rem;
+    padding-top: 16rem;
+
+    .main-heading,
+    .sub-heading {
+      text-align: center;
+      margin-bottom: 4.8rem;
+    }
+
+    .hero-button {
+      background-color: var(--cream-can);
+      color: var(--spicy-mustard);
+      width: 30rem;
+      height: 5rem;
+      font-size: 1.8rem;
+      font-weight: bold;
+      box-shadow: 1px 2px 5px rgba(black, 0.15);
+      transition: all .3s;
+
+      &:hover {
+        box-shadow: 1px 3px 10px rgba(black, 0.25);
+      }
+    }
   }
-
-  .main-heading, .sub-heading {
-    text-align: center;
-    margin-bottom: 4.8rem;
-  }
-
-
 }

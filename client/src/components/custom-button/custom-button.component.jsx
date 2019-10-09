@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const CustomButton = ({children, ...props}) => {
+const CustomButton = ({ isHeroButton, children, ...props }) => {
   return (
-    <button {...props}>{children}</button>
-  )
-}
+    <button className={`${isHeroButton ? "hero-button" : ""} `} {...props}>
+      {children}
+    </button>
+  );
+};
 
-export default CustomButton
+export default CustomButton;

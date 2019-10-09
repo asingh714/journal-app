@@ -14,7 +14,7 @@ const Homepage = () => {
         <h2 className="sub-heading">
           A science back method to increase <br /> happiness and reduce stress.
         </h2>
-        <CustomButton>Sign Up</CustomButton>
+        <CustomButton isHeroButton>Sign Up</CustomButton>
       </div>
     </div>
   );
