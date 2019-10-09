@@ -20,6 +20,10 @@
       margin-bottom: 4.8rem;
     }
 
+    .sub-heading {
+      font-weight: bold;
+    }
+
     .hero-button {
       background-color: var(--cream-can);
       color: var(--spicy-mustard);
@@ -87,4 +91,29 @@
   .morning-section {
     margin-bottom: 4.8rem;
   }
+}
+
+.benefits-section {
+  background-color: var(--alabaster);
+  padding: 10rem 0;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 8rem;
+  }
+
+  .top-row, .bottom-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .top-row {
+    margin-bottom: 7.2rem;
+  }
+
+
+  // display: flex;
+  // flex-direction: column
 }

@@ -1,0 +1,27 @@
+.benefit-card {
+  background-color: white;
+  width: 25rem;
+  height: 25rem;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(black, 0.20);
+
+  .benefit-icon {
+    width: 11.5rem;
+  }
+
+  h4, img {
+    margin-bottom: .8rem;
+  }
+
+  span {
+    font-size: 1.8rem;
+    color: var(--dove-gray);
+    line-height: 1.4;
+  }
+}
