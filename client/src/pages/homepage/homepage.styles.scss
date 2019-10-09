@@ -1,6 +1,6 @@
 .hero-section {
-  position: absolute;
-  top: 5px;
+  // position: absolute;
+  // top: 5px;
   background-image: url(../../assets/Hero.png);
   background-size: cover;
   height: 90vh;
@@ -28,11 +28,63 @@
       font-size: 1.8rem;
       font-weight: bold;
       box-shadow: 1px 2px 5px rgba(black, 0.15);
-      transition: all .3s;
+      transition: all 0.3s;
 
       &:hover {
         box-shadow: 1px 3px 10px rgba(black, 0.25);
       }
     }
+  }
+}
+
+.how-it-works-section {
+  padding: 10rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .how-it-works-heading,
+  .how-it-works-sub-heading {
+    font-weight: normal;
+    text-align: center;
+  }
+
+  .how-it-works-heading {
+    margin-bottom: 2.4rem;
+  }
+
+  .how-it-works-sub-heading {
+    margin-bottom: 4.8rem;
+  }
+
+  .morning-section,
+  .evening-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .icon-sun {
+      margin-right: 5rem;
+    }
+
+    .icon-moon {
+      margin-right: 4.5rem;
+      margin-left: 2rem;
+    }
+
+    .how-works-text {
+      font-size: 1.8rem;
+      line-height: 1.6;
+    }
+  }
+
+  .morning-section {
+    margin-bottom: 4.8rem;
   }
 }
