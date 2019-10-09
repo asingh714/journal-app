@@ -75,9 +75,9 @@ export const editJournalEntry = (id, journalEntry) => dispatch => {
   dispatch({ type: EDIT_JOURNAL_START })
 
   axiosWithAuth()
-  .edit(`/entries/${id}`, journalEntry)
+  .put(`/entries/${id}`, journalEntry)
   .then(res => {
-    console.log(res)
+    dispatch({ type: EDIT_JOURNAL_SUCCESS, payload: res.data });
   })
   .catch(error => {
     dispatch({ type: EDIT_JOURNAL_FAILURE })

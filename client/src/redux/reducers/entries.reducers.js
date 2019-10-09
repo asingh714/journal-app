@@ -99,38 +99,40 @@ const entriesReducer = (state = initialState, action) => {
         ...state,
         isDeletingEntry: true,
         deletingError: ""
-      }
+      };
     case DELETE_JOURNAL_SUCCESS:
       return {
         ...state,
         isDeletingEntry: false,
         entries: state.entries.filter(entry => entry.id !== action.payload),
         deletingError: ""
-      }
+      };
     case DELETE_JOURNAL_FAILURE:
       return {
         ...state,
         isDeletingEntry: false,
         deletingError: "There was an error with deleting"
-      }
-    case EDIT_JOURNAL_START: 
+      };
+    case EDIT_JOURNAL_START:
       return {
         ...state,
         isEditingEntry: true,
         editingError: ""
-      }
+      };
     case EDIT_JOURNAL_SUCCESS:
       return {
         ...state,
         isEditingEntry: false,
-        // entries
-      }
+        entries: state.entries.map(entry =>
+          entry.id === action.payload.id ? action.payload : entry
+        )
+      };
     case EDIT_JOURNAL_FAILURE:
       return {
         ...state,
         isEditingEntry: false,
         editingError: "There was an error with editing"
-      }
+      };
     default:
       return state;
   }
