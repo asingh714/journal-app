@@ -10,7 +10,7 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    max-width: 100rem;
+    max-width: 120rem;
     margin: auto;
     margin-top: 3.2rem;
     margin-bottom: 4rem;
@@ -18,29 +18,6 @@ header {
 
     .logo {
       width: 200px;
-    }
-
-    nav {
-      font-size: 1.8rem;
-      color: var(--dove-gray);
-
-      a {
-        padding: 1rem 2rem;
-        color: var(--dove-gray);
-
-        &:hover {
-          text-decoration: underline;
-        }
-
-        &.active {
-          font-weight: bold;
-        }
-
-        &:not(:last-child) {
-          margin-right: 1rem;
-        }
-
-      }
     }
   }
 }

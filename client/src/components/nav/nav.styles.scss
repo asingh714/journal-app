@@ -1,0 +1,22 @@
+nav {
+  font-size: 1.8rem;
+  color: var(--dove-gray);
+
+  a {
+    padding: 1rem 2rem;
+    color: var(--dove-gray);
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.active {
+      font-weight: bold;
+    }
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+
+  }
+}

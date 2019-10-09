@@ -1,0 +1,16 @@
+footer {
+  background-color: var(--cream-can);
+  padding: 3.2rem 0;
+
+  .sub-footer-container {
+    max-width: 120rem;
+    margin: 0 auto;
+
+    .copyright {
+      font-weight: bold;
+      text-align: center;
+      margin-top: 3.2rem;
+      color: var(--gray);
+    }
+  }
+}

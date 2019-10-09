@@ -3,6 +3,7 @@ import React from "react";
 import CustomButton from "../../components/custom-button/custom-button.component";
 import BenefitCard from "../../components/benefit-card/benefit-card.component";
 
+
 import Sun from "../../assets/Sun.png";
 import Moon from "../../assets/Moon.png";
 import Money from "../../assets/icon-currency-dollar.svg";
@@ -104,7 +105,7 @@ const Homepage = () => {
         </div>
       </div>
 
-      
+
     </>
   );
 };
