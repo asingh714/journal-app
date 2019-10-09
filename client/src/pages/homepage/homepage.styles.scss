@@ -3,15 +3,22 @@
   top: 5px;
   background-image: url(../../assets/Hero.png);
   background-size: cover;
-  height: 65vh;
+  height: 95vh;
   width: 100%;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  h1, h2 {
-    text-align: center;
+  z-index: -1;
+  
+  .hero-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 17rem;
   }
+
+  .main-heading, .sub-heading {
+    text-align: center;
+    margin-bottom: 4.8rem;
+  }
+
+
 }

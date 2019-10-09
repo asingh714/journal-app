@@ -7,11 +7,15 @@ import "./homepage.styles.scss";
 const Homepage = () => {
   return (
     <div className="hero-section">
-      <h1>
-        Your morning and evening journal. <br /> Secure, free and online.
-      </h1>
-      <h2>A science back method to increase <br /> happiness and reduce stress.</h2>
-      <CustomButton>Sign Up</CustomButton>
+      <div className="hero-text-container">
+        <h1 className="main-heading">
+          Your morning and evening journal. <br /> Secure, free and online.
+        </h1>
+        <h2 className="sub-heading">
+          A science back method to increase <br /> happiness and reduce stress.
+        </h2>
+        <CustomButton>Sign Up</CustomButton>
+      </div>
     </div>
   );
 };
