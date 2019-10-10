@@ -4,6 +4,10 @@
   height: 25rem;
   padding: 1rem;
 
+  // &:not(:last-child) {
+  //   margin-right: 10rem;
+  // }
+
   display: flex;
   flex-direction: column;
   justify-content: center;
