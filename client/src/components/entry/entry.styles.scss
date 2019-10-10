@@ -4,15 +4,16 @@
   flex-direction: column;
   justify-content: space-between;
   width: 15rem;
-  height: 15rem; 
+  height: 15rem;
   padding: 1.6rem;
+  cursor: pointer;
 
-  box-shadow: 1px 2px 5px rgba(black, 0.15);
-  // transition: all 0.3s;
+  box-shadow: 1px 1px 2px rgba(black, 0.15);
+  transition: all 0.3s;
 
-  // &:hover {
-  //   box-shadow: 1px 3px 10px rgba(black, 0.25);
-  // }
+  &:hover {
+    box-shadow: 1px 1px 5px rgba(black, 0.25);
+  }
 
   .date {
     font-weight: bold;
@@ -21,26 +22,30 @@
     display: block;
   }
 
-
-  .feelings-container, .button-container, .feel-container {
+  .feelings-container,
+  .button-container,
+  .feel-container {
     display: flex;
     justify-content: space-between;
+  }
 
+  .feel-container {
+    align-items: center;
   }
 
   .feelings-container {
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: 100%;
+
+    .emoji {
+      font-size: 3rem;
+    }
   }
-
-
 
   .text {
     font-size: 1.8rem;
     color: var(--dove-gray);
-
   }
-
 
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 
 import DeleteModal from "../delete-modal/delete-modal.component";
@@ -9,6 +9,53 @@ import "./entry.styles.scss";
 
 const Entry = props => {
   const [isVisible, setIsVisible] = useState(false);
+  const [emojiOne, setEmojiOne] = useState("");
+  const [emojiTwo, setEmojiTwo] = useState("");
+
+  const { feel_one, feel_two } = props.entry;
+  useEffect(() => {
+    switch (feel_one) {
+      case 1:
+        setEmojiOne("😡");
+        break;
+      case 2:
+        setEmojiOne("😔");
+        break;
+      case 3:
+        setEmojiOne("😐");
+        break;
+      case 4:
+        setEmojiOne("🙂");
+        break;
+      case 5:
+        setEmojiOne("😃");
+        break;
+      default:
+        setEmojiOne("");
+        break;
+    }
+
+    switch (feel_two) {
+      case 1:
+        setEmojiTwo("😡");
+        break;
+      case 2:
+        setEmojiTwo("😔");
+        break;
+      case 3:
+        setEmojiTwo("😐");
+        break;
+      case 4:
+        setEmojiTwo("🙂");
+        break;
+      case 5:
+        setEmojiTwo("😃");
+        break;
+      default:
+        setEmojiTwo("");
+        break;
+    }
+  }, [feel_one, feel_two]);
 
   const toggleDelete = event => {
     event.preventDefault();
@@ -36,11 +83,11 @@ const Entry = props => {
         <div className="feelings-container">
           <div className="feel-container top text">
             <span>Morning:</span>
-            <span>{props.entry.feel_one}</span>
+            <span className="emoji">{emojiOne}</span>
           </div>
           <div className="feel-container text">
             <span>Evening:</span>
-            <span>{props.entry.feel_two}</span>
+            <span className="emoji">{emojiTwo}</span>
           </div>
         </div>
       </div>
