@@ -24,13 +24,17 @@ const Journal = ({ fetchEntries, entries, ...props }) => {
 
   return (
     <div className="journal-page-container">
-      <div className="journal-entry-container">
-        <CustomButton isRounded onClick={routeToAddJournalEntry}>Add Journal Entry</CustomButton>
-        {entries.map(entry => (
-          <>
-            <Entry key={entry.id} entry={entry} {...props} />
-          </>
-        ))}
+      <div className="journal-and-button-container">
+        <CustomButton isRounded onClick={routeToAddJournalEntry}>
+          Add Journal Entry
+        </CustomButton>
+        <div className="journal-entries-container">
+          {entries.map(entry => (
+            <>
+              <Entry key={entry.id} entry={entry} {...props} />
+            </>
+          ))}
+        </div>
       </div>
     </div>
   );

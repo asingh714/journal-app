@@ -2,10 +2,10 @@ import React from "react";
 
 import "./custom-button.styles.scss";
 
-const CustomButton = ({ isHeroButton, isRounded, children, ...props }) => {
+const CustomButton = ({ isHeroButton, isRounded, isDelete, isEdit, children, ...props }) => {
   return (
     <button
-      className={`button ${isHeroButton ? "hero-button" : ""} ${
+      className={`button ${isDelete ? "delete-button" : ""} ${isEdit ? "edit-button" : ""} ${isHeroButton ? "hero-button" : ""} ${
         isRounded ? "rounded-button" : ""
       }`}
       {...props}

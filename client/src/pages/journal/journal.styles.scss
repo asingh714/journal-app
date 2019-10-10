@@ -3,7 +3,17 @@
   height: 100vh;
   padding: 4rem 10rem;
 
-  .journal-entry-container {
+  .journal-and-button-container {
     background-color: white;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+
+    .journal-entries-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      margin: 3.6rem 0;
+    }
   }
 }
