@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import useForm from "../../customHooks/useForm";
 import { editJournalEntry } from "../../redux/actions/entries.actions";
 
+import "./edit-journal.styles.scss";
+
 const EditJournalEntry = ({ editJournalEntry, ...props }) => {
   const { match, entries } = props;
   const id = match.params.id;
@@ -33,7 +35,7 @@ const EditJournalEntry = ({ editJournalEntry, ...props }) => {
   };
 
   return (
-    <>
+    <div className="edit-journal-container">
       <div>Random quote here!</div>
       <form>
         <h2>Morning</h2>
@@ -253,7 +255,7 @@ const EditJournalEntry = ({ editJournalEntry, ...props }) => {
         <button onClick={routeToJournalPage}>Cancel</button>
         <button onClick={handleSubmit}>Save</button>
       </form>
-    </>
+    </div>
   );
 };
 
