@@ -126,7 +126,8 @@ table {
 
 /* Global Styles */
 html {
-  font-size: 62.5%;
+	font-size: 62.5%;
+	height: 100%;
 }
 
 *:focus {
@@ -136,7 +137,11 @@ html {
 body {
   font-size: 1.6rem;
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+	font-family: "Open Sans", sans-serif;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
 }
 
 h1 {
@@ -166,7 +171,6 @@ h4 {
 a {
   text-decoration: none;
 }
-
 
 
 

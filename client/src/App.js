@@ -11,20 +11,24 @@ import SingleJournal from "./pages/single-journal/single-journal.component";
 import AddJournal from "./pages/add-journal/add-journal.component";
 import EditJournal from "./pages/edit-journal/edit-journal.component";
 
+import "./App.styles.scss";
+
 function App() {
   return (
-    <div>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Homepage} />
-        <Route exact path="/journal" component={Journal} />
-        <Route path="/signin" component={LogInAndSignUp} />
-        <Route path="/journal/:id" component={SingleJournal} />
-        <Route path="/add-journal-entry" component={AddJournal} />
-        <Route path="/edit-journal-entry/:id" component={EditJournal} />
-      </Switch>
+    <>
+      <div className="main-container">
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          <Route exact path="/journal" component={Journal} />
+          <Route path="/signin" component={LogInAndSignUp} />
+          <Route path="/journal/:id" component={SingleJournal} />
+          <Route path="/add-journal-entry" component={AddJournal} />
+          <Route path="/edit-journal-entry/:id" component={EditJournal} />
+        </Switch>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

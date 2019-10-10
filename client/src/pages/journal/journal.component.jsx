@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
+
+import "./journal.styles.scss";
+
 import Entry from "../../components/entry/entry.component";
 
 import { fetchEntries } from "../../redux/actions/entries.actions";
 
 const Journal = ({ fetchEntries, entries, ...props }) => {
-
   useEffect(() => {
     fetchEntries();
   }, [fetchEntries]);
@@ -17,15 +19,16 @@ const Journal = ({ fetchEntries, entries, ...props }) => {
 
   const routeToAddJournalEntry = e => {
     e.preventDefault();
-    props.history.push("/add-journal-entry")
-  }
+    props.history.push("/add-journal-entry");
+  };
 
   return (
-    <div>
-      <h2>Insert Month Here</h2>
+    <div className="journal-container">
       <div onClick={routeToAddJournalEntry}>Add Journal Entry</div>
       {entries.map(entry => (
-        <Entry key={entry.id} entry={entry} {...props} />
+        <>
+          <Entry key={entry.id} entry={entry} {...props} />
+        </>
       ))}
     </div>
   );

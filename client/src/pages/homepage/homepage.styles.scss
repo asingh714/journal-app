@@ -1,6 +1,4 @@
 .hero-section {
-  // position: absolute;
-  // top: 5px;
   background-image: url(../../assets/Hero.png);
   background-size: cover;
   height: 90vh;
@@ -49,7 +47,6 @@
   flex-direction: column;
   max-width: 100rem;
   margin: 0 auto;
-
 
   .how-it-works-heading,
   .how-it-works-sub-heading {
@@ -100,20 +97,19 @@
   background-color: var(--alabaster);
   padding: 10rem 0;
 
-
   h2 {
     text-align: center;
     margin-bottom: 8rem;
   }
 
-  .top-row, .bottom-row {
+  .top-row,
+  .bottom-row {
     max-width: 100rem;
     display: flex;
     flex-direction: row;
     margin: 0 auto;
-
   }
-  
+
   .top-row {
     justify-content: space-around;
     margin-bottom: 7.2rem;
@@ -122,7 +118,6 @@
   .bottom-row {
     justify-content: space-evenly;
   }
-
 }
 
 .testimonial-section {
@@ -139,7 +134,8 @@
     align-items: center;
   }
 
-  img, span {
+  img,
+  span {
     width: 50rem;
   }
 
@@ -156,5 +152,4 @@
   .bold {
     font-weight: bold;
   }
-
 }

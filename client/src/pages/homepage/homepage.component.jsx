@@ -3,7 +3,6 @@ import React from "react";
 import CustomButton from "../../components/custom-button/custom-button.component";
 import BenefitCard from "../../components/benefit-card/benefit-card.component";
 
-
 import Sun from "../../assets/Sun.png";
 import Moon from "../../assets/Moon.png";
 import Money from "../../assets/icon-currency-dollar.svg";
@@ -15,16 +14,14 @@ import Testimonial from "../../assets/testimonial-image.png";
 
 import "./homepage.styles.scss";
 
-const Homepage = ({history}) => {
-
+const Homepage = ({ history }) => {
   const navigateToLoginPage = event => {
     event.preventDefault();
-    history.push("/signin")
-  }
-
+    history.push("/signin");
+  };
 
   return (
-    <>
+    <div className="main-container">
       <main className="hero-section">
         <div className="hero-text-container">
           <h1 className="main-heading">
@@ -34,7 +31,9 @@ const Homepage = ({history}) => {
             A science back method to increase <br /> happiness and reduce
             stress.
           </h2>
-          <CustomButton isHeroButton onClick={navigateToLoginPage}>Sign Up</CustomButton>
+          <CustomButton isHeroButton onClick={navigateToLoginPage}>
+            Sign Up
+          </CustomButton>
         </div>
       </main>
 
@@ -111,9 +110,7 @@ const Homepage = ({history}) => {
           </span>
         </div>
       </div>
-
-
-    </>
+    </div>
   );
 };
 
