@@ -1,3 +1,24 @@
 .page-container {
   height: 100vh;
+  background-color: var(--alabaster);
+  padding: 4rem 0;
+
+  .log-in-sign-in-container {
+    background-color: white;
+    max-width: 60rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem;
+
+    .log-in-container, .sign-in-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      font-weight: bold;
+      margin-bottom: 1.6rem;
+    }
+  }
 }

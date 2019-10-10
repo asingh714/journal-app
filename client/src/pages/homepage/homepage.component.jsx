@@ -31,7 +31,7 @@ const Homepage = ({ history }) => {
             A science back method to increase <br /> happiness and reduce
             stress.
           </h2>
-          <CustomButton isHeroButton onClick={navigateToLoginPage}>
+          <CustomButton isWideButton onClick={navigateToLoginPage}>
             Sign Up
           </CustomButton>
         </div>
