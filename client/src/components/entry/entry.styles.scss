@@ -2,16 +2,17 @@
   background-color: var(--alabaster);
   display: flex;
   flex-direction: column;
-  width: 20rem;
-  height: 20rem; 
+  justify-content: space-between;
+  width: 15rem;
+  height: 15rem; 
   padding: 1.6rem;
 
   box-shadow: 1px 2px 5px rgba(black, 0.15);
-  transition: all 0.3s;
+  // transition: all 0.3s;
 
-  &:hover {
-    box-shadow: 1px 3px 10px rgba(black, 0.25);
-  }
+  // &:hover {
+  //   box-shadow: 1px 3px 10px rgba(black, 0.25);
+  // }
 
   .date {
     font-weight: bold;
@@ -21,8 +22,25 @@
   }
 
 
-  .button-container {
+  .feelings-container, .button-container, .feel-container {
     display: flex;
     justify-content: space-between;
+
   }
+
+  .feelings-container {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+
+
+  .text {
+    font-size: 1.8rem;
+    color: var(--dove-gray);
+
+  }
+
+
 }

@@ -28,16 +28,30 @@ const Entry = props => {
   return (
     <div className="journal-entry-card">
       <div onClick={e => routeToSpecifcJournalPage(e, props.entry.id)}>
-        <span className="date">{moment(props.entry.date).subtract(10, 'days').calendar()}</span>
-        <div className="feel-container">
-          <span>Morning:</span>
-          <span>{props.entry.feel_one}</span>
+        <span className="date">
+          {moment(props.entry.date)
+            .subtract(10, "days")
+            .calendar()}
+        </span>
+        <div className="feelings-container">
+          <div className="feel-container top text">
+            <span>Morning:</span>
+            <span>{props.entry.feel_one}</span>
+          </div>
+          <div className="feel-container text">
+            <span>Evening:</span>
+            <span>{props.entry.feel_two}</span>
+          </div>
         </div>
-        <span>Evening: {props.entry.feel_two}</span>
       </div>
       <div className="button-container">
-        <CustomButton isDelete onClick={toggleDelete}>Delete</CustomButton>
-        <CustomButton isEdit onClick={e => routeToEditSpecificJournal(e, props.entry.id)}>
+        <CustomButton isDelete onClick={toggleDelete}>
+          Delete
+        </CustomButton>
+        <CustomButton
+          isEdit
+          onClick={e => routeToEditSpecificJournal(e, props.entry.id)}
+        >
           Edit
         </CustomButton>
       </div>
