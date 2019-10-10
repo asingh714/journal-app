@@ -15,7 +15,14 @@ import Testimonial from "../../assets/testimonial-image.png";
 
 import "./homepage.styles.scss";
 
-const Homepage = () => {
+const Homepage = ({history}) => {
+
+  const navigateToLoginPage = event => {
+    event.preventDefault();
+    history.push("/signin")
+  }
+
+
   return (
     <>
       <main className="hero-section">
@@ -27,7 +34,7 @@ const Homepage = () => {
             A science back method to increase <br /> happiness and reduce
             stress.
           </h2>
-          <CustomButton isHeroButton>Sign Up</CustomButton>
+          <CustomButton isHeroButton onClick={navigateToLoginPage}>Sign Up</CustomButton>
         </div>
       </main>
 

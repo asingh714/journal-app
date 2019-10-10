@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import moment from "moment";
 
 import { fetchSingleEntry } from "../../redux/actions/entries.actions";
 
@@ -29,7 +30,7 @@ const SingleJournal = ({ entry, fetchSingleEntry, ...props }) => {
   return (
     <>
       <h2>Morning</h2>
-      <span>{date}</span>
+      <span>{moment(date).subtract(10, 'days').calendar()}</span>
       <span>I am grateful for...</span>
       <span>1: {grateful_one}</span>
       <span>2: {grateful_two}</span>

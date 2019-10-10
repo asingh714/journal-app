@@ -129,6 +129,10 @@ html {
   font-size: 62.5%;
 }
 
+*:focus {
+	outline: none;
+}
+
 body {
   font-size: 1.6rem;
   box-sizing: border-box;
@@ -162,6 +166,8 @@ h4 {
 a {
   text-decoration: none;
 }
+
+
 
 
 :root {

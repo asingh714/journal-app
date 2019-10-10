@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import moment from "moment";
 
 import DeleteModal from "../delete-modal/delete-modal.component";
+
+import "./entry.styles.scss";
 
 const Entry = props => {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,7 +26,7 @@ const Entry = props => {
   return (
     <>
       <div onClick={e => routeToSpecifcJournalPage(e, props.entry.id)}>
-        <span>{props.entry.date}</span>
+        <span>{moment(props.entry.date).subtract(10, 'days').calendar()}</span>
         <span>Morning: {props.entry.feel_one}</span>
         <span>Evening: {props.entry.feel_two}</span>
       </div>
