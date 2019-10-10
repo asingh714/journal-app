@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-
 import "./journal.styles.scss";
 
 import Entry from "../../components/entry/entry.component";
+import CustomButton from "../../components/custom-button/custom-button.component";
 
 import { fetchEntries } from "../../redux/actions/entries.actions";
 
@@ -23,13 +23,15 @@ const Journal = ({ fetchEntries, entries, ...props }) => {
   };
 
   return (
-    <div className="journal-container">
-      <div onClick={routeToAddJournalEntry}>Add Journal Entry</div>
-      {entries.map(entry => (
-        <>
-          <Entry key={entry.id} entry={entry} {...props} />
-        </>
-      ))}
+    <div className="journal-page-container">
+      <div className="journal-entry-container">
+        <CustomButton isRounded onClick={routeToAddJournalEntry}>Add Journal Entry</CustomButton>
+        {entries.map(entry => (
+          <>
+            <Entry key={entry.id} entry={entry} {...props} />
+          </>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,4 +1,9 @@
-.journal-container {
+.journal-page-container {
   background-color: var(--alabaster);
   height: 100vh;
+  padding: 4rem 10rem;
+
+  .journal-entry-container {
+    background-color: white;
+  }
 }
