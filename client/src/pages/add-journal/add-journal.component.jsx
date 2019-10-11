@@ -13,16 +13,15 @@ const AddJournalEntry = ({
   addJournalEntry,
   ...props
 }) => {
-  const [quote, setQuote] = useState([]);
-
+  const [quoteObj, setQuoteObj] = useState({});
   useEffect(() => {
     fetchQuotes();
-    // if (quotes.length > 0) {
-    // let arr = quotes[Math.floor(Math.random() * quotes.length)];
-    // setQuote(arr);
-    // console.log(quote);
-    // }
-  }, []);
+  }, [fetchQuotes]);
+
+  useEffect(() => {
+    let quoteObj = quotes[Math.floor(Math.random() * quotes.length)];
+    setQuoteObj(quoteObj);
+  }, [quotes]);
 
   const handleAddJournalEntry = event => {
     if (event) event.preventDefault();
@@ -40,7 +39,8 @@ const AddJournalEntry = ({
 
   return (
     <div className="add-journal-container">
-      {/* <div>{quote.author}</div> */}
+      <div>{quoteObj && quoteObj.quote}</div>
+      <div>{quoteObj && quoteObj.author}</div>
       <form>
         <h2>Morning</h2>
         <input
