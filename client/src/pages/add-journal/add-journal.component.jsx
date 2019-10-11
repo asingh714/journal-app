@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import useForm from "../../customHooks/useForm";
 import { addJournalEntry } from "../../redux/actions/entries.actions";
+import { fetchQuotes } from "../../redux/actions/quote.actions";
 
 import "./add-journal.styles.scss";
 
-const AddJournalEntry = ({ addJournalEntry, ...props }) => {
+const AddJournalEntry = ({
+  quotes,
+  fetchQuotes,
+  addJournalEntry,
+  ...props
+}) => {
+  const [quote, setQuote] = useState([]);
+
+  useEffect(() => {
+    fetchQuotes();
+    // if (quotes.length > 0) {
+    // let arr = quotes[Math.floor(Math.random() * quotes.length)];
+    // setQuote(arr);
+    // console.log(quote);
+    // }
+  }, []);
+
   const handleAddJournalEntry = event => {
     if (event) event.preventDefault();
     addJournalEntry(addFormInput);
@@ -23,7 +40,7 @@ const AddJournalEntry = ({ addJournalEntry, ...props }) => {
 
   return (
     <div className="add-journal-container">
-      <div>Random quote here!</div>
+      {/* <div>{quote.author}</div> */}
       <form>
         <h2>Morning</h2>
         <input
@@ -246,7 +263,13 @@ const AddJournalEntry = ({ addJournalEntry, ...props }) => {
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    quotes: state.quotes.quotes
+  };
+};
+
 export default connect(
-  null,
-  { addJournalEntry }
+  mapStateToProps,
+  { addJournalEntry, fetchQuotes }
 )(AddJournalEntry);
