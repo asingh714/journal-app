@@ -1,3 +1,32 @@
 .add-journal-container {
   height: 100vh;
+  background-color: var(--alabaster);
+  padding: 4rem 0;
+
+  .quote-journal-entry-container {
+    background-color: white;
+    max-width: 80rem;
+    margin: 0 auto;
+
+    .quote-container {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      padding: 3rem 0;
+      color: var(--gray);
+
+      span {
+        font-size: 1.8rem;
+      }
+
+      .author {
+        margin-top: 1.2rem;
+      }
+    }
+    .line {
+      width: 100%;
+      height: 3px;
+      background-color: var(--alabaster);
+    }
+  }
 }
