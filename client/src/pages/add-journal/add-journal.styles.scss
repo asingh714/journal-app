@@ -1,5 +1,5 @@
 .add-journal-container {
-  height: 100vh;
+  // height: 100vh;
   background-color: var(--alabaster);
   padding: 4rem 0;
 
@@ -39,16 +39,47 @@
       }
 
       .subheading {
-        margin-bottom: .8rem;
+        margin-bottom: 0.8rem;
       }
 
-      .number-input-container{
+      .number-input-container {
         display: flex;
-        align-items:center;
+        align-items: center;
         margin-bottom: 2.4rem;
 
         .number {
           margin-right: 1rem;
+        }
+      }
+
+      .emoji-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 2rem auto;
+        width: 60%;
+        
+        input {
+          display: none;
+
+          &:hover ~ span {
+            background: var(--alabaster);
+            border: 1px solid var(--mercury);
+            box-shadow: 1px 3px 5px rgba(black, 0.15);
+            padding: .5rem 1rem;
+            border-radius: 3px;
+          }
+
+          &:checked ~ span {
+            background: var(--alabaster);
+            border: 1px solid var(--mercury);
+            box-shadow: 1px 3px 10px rgba(black, 0.25);
+            padding: .5rem 1rem;
+            border-radius: 3px;
+          }
+        }
+        span {
+          font-size: 3rem;
         }
       }
     }

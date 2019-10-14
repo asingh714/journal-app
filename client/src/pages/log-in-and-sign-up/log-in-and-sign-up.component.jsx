@@ -66,6 +66,7 @@ const LogInAndSignUp = ({ loginUser, registerUser, history }) => {
               handleChange={handleSigninChanges}
               type="text"
               value={signinInput.name || ""}
+              isShort
             />
             <FormInput
               name="email"
@@ -73,6 +74,7 @@ const LogInAndSignUp = ({ loginUser, registerUser, history }) => {
               handleChange={handleSigninChanges}
               type="email"
               value={signinInput.email || ""}
+              isShort
             />
             <FormInput
               name="username"
@@ -80,6 +82,7 @@ const LogInAndSignUp = ({ loginUser, registerUser, history }) => {
               handleChange={handleSigninChanges}
               type="text"
               value={signinInput.username || ""}
+              isShort
             />
             <FormInput
               name="password"
@@ -87,6 +90,7 @@ const LogInAndSignUp = ({ loginUser, registerUser, history }) => {
               handleChange={handleSigninChanges}
               type="password"
               value={signinInput.password || ""}
+              isShort
             />
             <CustomButton isWideButton onClick={handleSigninSubmit}>
               Submit

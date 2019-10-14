@@ -59,7 +59,7 @@ const AddJournalEntry = ({
           />
           <span className="subheading">I am grateful for...</span>
           <div className="number-input-container">
-            <span className="number">1: </span>
+            <span className="number">1:</span>
             <FormInput
               name="grateful_one"
               onChange={handleChanges}
@@ -68,111 +68,130 @@ const AddJournalEntry = ({
               isLong
             />
           </div>
-          <span>2: </span>
-          <input
-            name="grateful_two"
-            onChange={handleChanges}
-            type="text"
-            value={addFormInput.grateful_two || ""}
-          />
-          <span>3: </span>
-          <input
-            name="grateful_three"
-            onChange={handleChanges}
-            type="text"
-            value={addFormInput.grateful_three || ""}
-          />
-          <span>What would make today great?</span>
-          <span>1: </span>
-          <input
-            name="great_one"
-            onChange={handleChanges}
-            type="text"
-            value={addFormInput.great_one || ""}
-          />
-          <span>2: </span>
-          <input
-            name="great_two"
-            onChange={handleChanges}
-            type="text"
-            value={addFormInput.great_two || ""}
-          />
-          <span>3: </span>
-          <input
-            name="great_three"
-            onChange={handleChanges}
-            type="text"
-            value={addFormInput.great_three || ""}
-          />
+          <div className="number-input-container">
+            <span className="number">2:</span>
+            <FormInput
+              name="grateful_two"
+              onChange={handleChanges}
+              type="text"
+              value={addFormInput.grateful_two || ""}
+              isLong
+            />
+          </div>
+          <div className="number-input-container">
+            <span className="number">3:</span>
+            <FormInput
+              name="grateful_three"
+              onChange={handleChanges}
+              type="text"
+              value={addFormInput.grateful_three || ""}
+              isLong
+            />
+          </div>
 
-          <span>Daily Affirmation</span>
-          <input
+          <span className="subheading">What would make today great?</span>
+          <div className="number-input-container">
+            <span className="number">1: </span>
+            <FormInput
+              name="great_one"
+              onChange={handleChanges}
+              type="text"
+              value={addFormInput.great_one || ""}
+              isLong
+            />
+          </div>
+          <div className="number-input-container">
+            <span className="number">2: </span>
+            <FormInput
+              name="great_two"
+              onChange={handleChanges}
+              type="text"
+              value={addFormInput.great_two || ""}
+              isLong
+            />
+          </div>
+          <div className="number-input-container">
+            <span className="number">3:</span>
+            <FormInput
+              name="great_three"
+              onChange={handleChanges}
+              type="text"
+              value={addFormInput.great_three || ""}
+              isLong
+            />
+          </div>
+
+          <span className="subheading">Daily Affirmation</span>
+          <FormInput
             name="daily_affirmation"
             onChange={handleChanges}
             type="text"
             value={addFormInput.daily_affirmation || ""}
+            isSingle
           />
 
-          <span>How I feel right now:</span>
-          <label>
-            <input
-              name="feel_one"
-              onChange={handleChanges}
-              type="radio"
-              value={1}
-            />
-            <span role="img" aria-label="pouting face">
-              😡
-            </span>
-          </label>
+          <span className="subheading">How I feel right now:</span>
+          <div className="emoji-container">
+            <label>
+              <input
+                name="feel_one"
+                onChange={handleChanges}
+                type="radio"
+                value={1}
+              />
+              <span role="img" aria-label="pouting face">
+                😡
+              </span>
+            </label>
 
-          <label>
-            <input
-              name="feel_one"
-              onChange={handleChanges}
-              type="radio"
-              value={2}
-            />
-            <span role="img" aria-label="sad pensive face">
-              😔
-            </span>
-          </label>
+            <label>
+              <input
+                name="feel_one"
+                onChange={handleChanges}
+                type="radio"
+                value={2}
+              />
+              <span role="img" aria-label="sad pensive face">
+                😔
+              </span>
+            </label>
 
-          <label>
-            <input
-              name="feel_one"
-              onChange={handleChanges}
-              type="radio"
-              value={3}
-            />
-            <span role="img" aria-label="neutral face">
-              😐
-            </span>
-          </label>
+            <label>
+              <input
+                name="feel_one"
+                onChange={handleChanges}
+                type="radio"
+                value={3}
+              />
+              <span role="img" aria-label="neutral face">
+                😐
+              </span>
+            </label>
 
-          <label>
-            <input
-              name="feel_one"
-              onChange={handleChanges}
-              type="radio"
-              value={4}
-            />
-            <span role="img" aria-label="slightly smiling face">
-              🙂
-            </span>
-          </label>
+            <label>
+              <input
+                name="feel_one"
+                onChange={handleChanges}
+                type="radio"
+                value={4}
+              />
+              <span role="img" aria-label="slightly smiling face">
+                🙂
+              </span>
+            </label>
 
-          <label>
-            <input
-              name="feel_one"
-              onChange={handleChanges}
-              type="radio"
-              value={5}
-            />
-            <span role="img" aria-label="grinning face with open mouth">
-              😃
-            </span>
-          </label>
+            <label>
+              <input
+                name="feel_one"
+                onChange={handleChanges}
+                type="radio"
+                value={5}
+              />
+              <span role="img" aria-label="grinning face with open mouth">
+                😃
+              </span>
+            </label>
+          </div>
 
           <h2 className="heading">Evening</h2>
           <span>Three amazing things that happened today</span>
@@ -207,65 +226,67 @@ const AddJournalEntry = ({
           />
 
           <span>How I feel right now:</span>
-          <label>
-            <input
-              name="feel_two"
-              onChange={handleChanges}
-              type="radio"
-              value={1}
-            />
-            <span role="img" aria-label="pouting face">
-              😡
-            </span>
-          </label>
+          <div className="emoji-container">
+            <label>
+              <input
+                name="feel_two"
+                onChange={handleChanges}
+                type="radio"
+                value={1}
+              />
+              <span role="img" aria-label="pouting face">
+                😡
+              </span>
+            </label>
 
-          <label>
-            <input
-              name="feel_two"
-              onChange={handleChanges}
-              type="radio"
-              value={2}
-            />
-            <span role="img" aria-label="sad pensive face">
-              😔
-            </span>
-          </label>
+            <label>
+              <input
+                name="feel_two"
+                onChange={handleChanges}
+                type="radio"
+                value={2}
+              />
+              <span role="img" aria-label="sad pensive face">
+                😔
+              </span>
+            </label>
 
-          <label>
-            <input
-              name="feel_two"
-              onChange={handleChanges}
-              type="radio"
-              value={3}
-            />
-            <span role="img" aria-label="neutral face">
-              😐
-            </span>
-          </label>
+            <label>
+              <input
+                name="feel_two"
+                onChange={handleChanges}
+                type="radio"
+                value={3}
+              />
+              <span role="img" aria-label="neutral face">
+                😐
+              </span>
+            </label>
 
-          <label>
-            <input
-              name="feel_two"
-              onChange={handleChanges}
-              type="radio"
-              value={4}
-            />
-            <span role="img" aria-label="slightly smiling face">
-              🙂
-            </span>
-          </label>
+            <label>
+              <input
+                name="feel_two"
+                onChange={handleChanges}
+                type="radio"
+                value={4}
+              />
+              <span role="img" aria-label="slightly smiling face">
+                🙂
+              </span>
+            </label>
 
-          <label>
-            <input
-              name="feel_two"
-              onChange={handleChanges}
-              type="radio"
-              value={5}
-            />
-            <span role="img" aria-label="grinning face with open mouth">
-              😃
-            </span>
-          </label>
+            <label>
+              <input
+                name="feel_two"
+                onChange={handleChanges}
+                type="radio"
+                value={5}
+              />
+              <span role="img" aria-label="grinning face with open mouth">
+                😃
+              </span>
+            </label>
+          </div>
 
           <button onClick={routeToJournalPage}>Cancel</button>
           <button onClick={handleSubmit}>Save</button>
