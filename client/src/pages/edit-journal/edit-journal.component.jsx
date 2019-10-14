@@ -1,12 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import useForm from "../../customHooks/useForm";
 import { editJournalEntry } from "../../redux/actions/entries.actions";
+import { fetchQuotes } from "../../redux/actions/quote.actions";
+
+import CustomButton from "../../components/custom-button/custom-button.component";
+import FormInput from "../../components/form-input/form-input.component";
 
 import "./edit-journal.styles.scss";
 
-const EditJournalEntry = ({ editJournalEntry, ...props }) => {
+const EditJournalEntry = ({
+  quotes,
+  fetchQuotes,
+  editJournalEntry,
+  ...props
+}) => {
+  const [quoteObj, setQuoteObj] = useState({});
+
+  useEffect(() => {
+    fetchQuotes();
+  }, [fetchQuotes]);
+
+  useEffect(() => {
+    let quoteObj = quotes[Math.floor(Math.random() * quotes.length)];
+    setQuoteObj(quoteObj);
+  }, [quotes]);
+
   const { match, entries } = props;
   const id = match.params.id;
   const handleEditJournalEntry = event => {
@@ -36,236 +56,287 @@ const EditJournalEntry = ({ editJournalEntry, ...props }) => {
 
   return (
     <div className="edit-journal-container">
-      <div>Random quote here!</div>
-      <form>
-        <h2>Morning</h2>
-        <input
-          name="date"
-          onChange={handleChanges}
-          type="date"
-          value={editFormInput.date || ""}
-        />
-        <span>I am grateful for...</span>
-        <span>1: </span>
-        <input
-          name="grateful_one"
-          onChange={handleChanges}
-          type="text"
-          value={editFormInput.grateful_one || ""}
-        />
-        <span>2: </span>
-        <input
-          name="grateful_two"
-          onChange={handleChanges}
-          type="text"
-          value={editFormInput.grateful_two || ""}
-        />
-        <span>3: </span>
-        <input
-          name="grateful_three"
-          onChange={handleChanges}
-          type="text"
-          value={editFormInput.grateful_three || ""}
-        />
-        <span>What would make today great?</span>
-        <span>1: </span>
-        <input
-          name="great_one"
-          onChange={handleChanges}
-          type="text"
-          value={editFormInput.great_one || ""}
-        />
-        <span>2: </span>
-        <input
-          name="great_two"
-          onChange={handleChanges}
-          type="text"
-          value={editFormInput.great_two || ""}
-        />
-        <span>3: </span>
-        <input
-          name="great_three"
-          onChange={handleChanges}
-          type="text"
-          value={editFormInput.great_three || ""}
-        />
-
-        <span>Daily Affirmation</span>
-        <input
-          name="daily_affirmation"
-          onChange={handleChanges}
-          type="text"
-          value={editFormInput.daily_affirmation || ""}
-        />
-
-        <span>How I feel right now:</span>
-        <label>
-          <input
-            name="feel_one"
+      <div className="quote-journal-entry-container">
+        <div className="quote-container">
+          <span>"{quoteObj && quoteObj.quote}"</span>
+          <span className="author">- {quoteObj && quoteObj.author}</span>
+        </div>
+        <div className="line"></div>
+        <form className="form-container">
+          <h2 className="heading">Morning</h2>
+          <FormInput
+            name="date"
             onChange={handleChanges}
-            type="radio"
-            value={1}
+            type="date"
+            value={editFormInput.date || ""}
+            isShort
           />
-          <span role="img" aria-label="pouting face">
-            😡
-          </span>
-        </label>
+          <span className="subheading">I am grateful for...</span>
+          <div className="number-input-container">
+            <span className="number">1:</span>
+            <FormInput
+              name="grateful_one"
+              onChange={handleChanges}
+              type="text"
+              value={editFormInput.grateful_one || ""}
+              isLong
+            />
+          </div>
+          <div className="number-input-container">
+            <span className="number">2:</span>
+            <FormInput
+              name="grateful_two"
+              onChange={handleChanges}
+              type="text"
+              value={editFormInput.grateful_two || ""}
+              isLong
+            />
+          </div>
+          <div className="number-input-container">
+            <span className="number">3:</span>
+            <FormInput
+              name="grateful_three"
+              onChange={handleChanges}
+              type="text"
+              value={editFormInput.grateful_three || ""}
+              isLong
+            />
+          </div>
 
-        <label>
-          <input
-            name="feel_one"
+          <span className="subheading">What would make today great?</span>
+          <div className="number-input-container">
+            <span className="number">1: </span>
+            <FormInput
+              name="great_one"
+              onChange={handleChanges}
+              type="text"
+              value={editFormInput.great_one || ""}
+              isLong
+            />
+          </div>
+          <div className="number-input-container">
+            <span className="number">2: </span>
+            <FormInput
+              name="great_two"
+              onChange={handleChanges}
+              type="text"
+              value={editFormInput.great_two || ""}
+              isLong
+            />
+          </div>
+          <div className="number-input-container">
+            <span className="number">3:</span>
+            <FormInput
+              name="great_three"
+              onChange={handleChanges}
+              type="text"
+              value={editFormInput.great_three || ""}
+              isLong
+            />
+          </div>
+
+          <span className="subheading">Daily Affirmation</span>
+          <FormInput
+            name="daily_affirmation"
             onChange={handleChanges}
-            type="radio"
-            value={2}
+            type="text"
+            value={editFormInput.daily_affirmation || ""}
+            isSingle
           />
-          <span role="img" aria-label="sad pensive face">
-            😔
-          </span>
-        </label>
 
-        <label>
-          <input
-            name="feel_one"
+          <span className="subheading">How I feel right now:</span>
+          <div className="emoji-container">
+            <label>
+              <input
+                name="feel_one"
+                onChange={handleChanges}
+                type="radio"
+                value={1}
+              />
+              <span role="img" aria-label="pouting face">
+                😡
+              </span>
+            </label>
+
+            <label>
+              <input
+                name="feel_one"
+                onChange={handleChanges}
+                type="radio"
+                value={2}
+              />
+              <span role="img" aria-label="sad pensive face">
+                😔
+              </span>
+            </label>
+
+            <label>
+              <input
+                name="feel_one"
+                onChange={handleChanges}
+                type="radio"
+                value={3}
+              />
+              <span role="img" aria-label="neutral face">
+                😐
+              </span>
+            </label>
+
+            <label>
+              <input
+                name="feel_one"
+                onChange={handleChanges}
+                type="radio"
+                value={4}
+              />
+              <span role="img" aria-label="slightly smiling face">
+                🙂
+              </span>
+            </label>
+
+            <label>
+              <input
+                name="feel_one"
+                onChange={handleChanges}
+                type="radio"
+                value={5}
+              />
+              <span role="img" aria-label="grinning face with open mouth">
+                😃
+              </span>
+            </label>
+          </div>
+
+          <h2 className="heading">Evening</h2>
+          <span className="subheading">
+            Three amazing things that happened today
+          </span>
+          <div className="number-input-container">
+            <span className="number">1:</span>
+            <FormInput
+              name="amazing_one"
+              onChange={handleChanges}
+              type="text"
+              value={editFormInput.amazing_one || ""}
+              isLong
+            />
+          </div>
+          <div className="number-input-container">
+            <span className="number">2:</span>
+            <FormInput
+              name="amazing_two"
+              onChange={handleChanges}
+              type="text"
+              value={editFormInput.amazing_two || ""}
+              isLong
+            />
+          </div>
+          <div className="number-input-container">
+            <span className="number">3:</span>
+            <FormInput
+              name="amazing_three"
+              onChange={handleChanges}
+              type="text"
+              value={editFormInput.amazing_three || ""}
+              isLong
+            />
+          </div>
+
+          <span className="subheading">
+            What could have made today even better?
+          </span>
+          <FormInput
+            name="better"
             onChange={handleChanges}
-            type="radio"
-            value={3}
+            type="text"
+            value={editFormInput.better || ""}
+            isSingle
           />
-          <span role="img" aria-label="neutral face">
-            😐
-          </span>
-        </label>
 
-        <label>
-          <input
-            name="feel_one"
-            onChange={handleChanges}
-            type="radio"
-            value={4}
-          />
-          <span role="img" aria-label="slightly smiling face">
-            🙂
-          </span>
-        </label>
+          <span className="subheading">How I feel right now:</span>
+          <div className="emoji-container">
+            <label>
+              <input
+                name="feel_two"
+                onChange={handleChanges}
+                type="radio"
+                value={1}
+              />
+              <span role="img" aria-label="pouting face">
+                😡
+              </span>
+            </label>
 
-        <label>
-          <input
-            name="feel_one"
-            onChange={handleChanges}
-            type="radio"
-            value={5}
-          />
-          <span role="img" aria-label="grinning face with open mouth">
-            😃
-          </span>
-        </label>
+            <label>
+              <input
+                name="feel_two"
+                onChange={handleChanges}
+                type="radio"
+                value={2}
+              />
+              <span role="img" aria-label="sad pensive face">
+                😔
+              </span>
+            </label>
 
-        <h2>Evening</h2>
-        <span>Three amazing things that happened today</span>
-        <span>1: </span>
-        <input
-          name="amazing_one"
-          onChange={handleChanges}
-          type="text"
-          value={editFormInput.amazing_one || ""}
-        />
-        <span>2: </span>
-        <input
-          name="amazing_two"
-          onChange={handleChanges}
-          type="text"
-          value={editFormInput.amazing_two || ""}
-        />
-        <span>3: </span>
-        <input
-          name="amazing_three"
-          onChange={handleChanges}
-          type="text"
-          value={editFormInput.amazing_three || ""}
-        />
+            <label>
+              <input
+                name="feel_two"
+                onChange={handleChanges}
+                type="radio"
+                value={3}
+              />
+              <span role="img" aria-label="neutral face">
+                😐
+              </span>
+            </label>
 
-        <span>What could have made today even better?</span>
-        <input
-          name="better"
-          onChange={handleChanges}
-          type="text"
-          value={editFormInput.better || ""}
-        />
+            <label>
+              <input
+                name="feel_two"
+                onChange={handleChanges}
+                type="radio"
+                value={4}
+              />
+              <span role="img" aria-label="slightly smiling face">
+                🙂
+              </span>
+            </label>
 
-        <span>How I feel right now:</span>
-        <label>
-          <input
-            name="feel_two"
-            onChange={handleChanges}
-            type="radio"
-            value={1}
-          />
-          <span role="img" aria-label="pouting face">
-            😡
-          </span>
-        </label>
-
-        <label>
-          <input
-            name="feel_two"
-            onChange={handleChanges}
-            type="radio"
-            value={2}
-          />
-          <span role="img" aria-label="sad pensive face">
-            😔
-          </span>
-        </label>
-
-        <label>
-          <input
-            name="feel_two"
-            onChange={handleChanges}
-            type="radio"
-            value={3}
-          />
-          <span role="img" aria-label="neutral face">
-            😐
-          </span>
-        </label>
-
-        <label>
-          <input
-            name="feel_two"
-            onChange={handleChanges}
-            type="radio"
-            value={4}
-          />
-          <span role="img" aria-label="slightly smiling face">
-            🙂
-          </span>
-        </label>
-
-        <label>
-          <input
-            name="feel_two"
-            onChange={handleChanges}
-            type="radio"
-            value={5}
-          />
-          <span role="img" aria-label="grinning face with open mouth">
-            😃
-          </span>
-        </label>
-
-        <button onClick={routeToJournalPage}>Cancel</button>
-        <button onClick={handleSubmit}>Save</button>
-      </form>
+            <label>
+              <input
+                name="feel_two"
+                onChange={handleChanges}
+                type="radio"
+                value={5}
+              />
+              <span role="img" aria-label="grinning face with open mouth">
+                😃
+              </span>
+            </label>
+          </div>
+          <div className="button-container">
+            <CustomButton isDelete onClick={routeToJournalPage}>
+              Cancel
+            </CustomButton>
+            <CustomButton isBigEdit onClick={handleSubmit}>
+              Save
+            </CustomButton>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    entries: state.entries.entries
+    entries: state.entries.entries,
+    quotes: state.quotes.quotes
   };
 };
 
 export default connect(
   mapStateToProps,
-  { editJournalEntry }
+  { editJournalEntry, fetchQuotes }
 )(EditJournalEntry);

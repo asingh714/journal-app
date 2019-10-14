@@ -1,3 +1,91 @@
 .edit-journal-container {
-  height: 100vh;
+  background-color: var(--alabaster);
+  padding: 4rem 0;
+
+  .quote-journal-entry-container {
+    background-color: white;
+    max-width: 80rem;
+    margin: 0 auto;
+
+    .quote-container {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      padding: 3rem 0;
+      color: var(--gray);
+
+      span {
+        font-size: 1.8rem;
+      }
+
+      .author {
+        margin-top: 1.2rem;
+      }
+    }
+    .line {
+      width: 100%;
+      height: 3px;
+      background-color: var(--alabaster);
+    }
+
+    .form-container {
+      padding: 3.6rem 3.2rem;
+      display: flex;
+      flex-direction: column;
+
+      .heading {
+        margin-bottom: 2rem;
+      }
+
+      .subheading {
+        margin-bottom: 0.8rem;
+      }
+
+      .number-input-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2.4rem;
+
+        .number {
+          margin-right: 1rem;
+        }
+      }
+
+      .emoji-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 2rem auto;
+        width: 60%;
+        
+        input {
+          display: none;
+
+          &:hover ~ span {
+            background: var(--alabaster);
+            border: 1px solid var(--mercury);
+            box-shadow: 1px 3px 5px rgba(black, 0.15);
+            padding: .5rem 1rem;
+            border-radius: 3px;
+          }
+
+          &:checked ~ span {
+            background: var(--alabaster);
+            border: 1px solid var(--mercury);
+            box-shadow: 1px 3px 10px rgba(black, 0.25);
+            padding: .5rem 1rem;
+            border-radius: 3px;
+          }
+        }
+        span {
+          font-size: 3rem;
+        }
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
 }

@@ -41,8 +41,8 @@ const AddJournalEntry = ({
   };
 
   return (
-    <form className="add-journal-container">
-      <form className="quote-journal-entry-container">
+    <div className="add-journal-container">
+      <div className="quote-journal-entry-container">
         <div className="quote-container">
           <span>"{quoteObj && quoteObj.quote}"</span>
           <span className="author">- {quoteObj && quoteObj.author}</span>
@@ -310,8 +310,8 @@ const AddJournalEntry = ({
             </CustomButton>
           </div>
         </form>
-      </form>
-    </form>
+      </div >
+    </div>
   );
 };
 
