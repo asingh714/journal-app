@@ -48,23 +48,26 @@ const AddJournalEntry = ({
           <span className="author">- {quoteObj && quoteObj.author}</span>
         </div>
         <div className="line"></div>
-        <form>
-          <h2>Morning</h2>
-          <input
+        <form className="form-container">
+          <h2 className="heading">Morning</h2>
+          <FormInput
             name="date"
-            placeholder="Date"
             onChange={handleChanges}
             type="date"
             value={addFormInput.date || ""}
+            isShort
           />
-          <span>I am grateful for...</span>
-          <span>1: </span>
-          <input
-            name="grateful_one"
-            onChange={handleChanges}
-            type="text"
-            value={addFormInput.grateful_one || ""}
-          />
+          <span className="subheading">I am grateful for...</span>
+          <div className="number-input-container">
+            <span className="number">1: </span>
+            <FormInput
+              name="grateful_one"
+              onChange={handleChanges}
+              type="text"
+              value={addFormInput.grateful_one || ""}
+              isLong
+            />
+          </div>
           <span>2: </span>
           <input
             name="grateful_two"
@@ -171,7 +174,7 @@ const AddJournalEntry = ({
             </span>
           </label>
 
-          <h2>Evening</h2>
+          <h2 className="heading">Evening</h2>
           <span>Three amazing things that happened today</span>
           <span>1: </span>
           <input

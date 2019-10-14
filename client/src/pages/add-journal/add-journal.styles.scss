@@ -28,5 +28,29 @@
       height: 3px;
       background-color: var(--alabaster);
     }
+
+    .form-container {
+      padding: 3.6rem 3.2rem;
+      display: flex;
+      flex-direction: column;
+
+      .heading {
+        margin-bottom: 2rem;
+      }
+
+      .subheading {
+        margin-bottom: .8rem;
+      }
+
+      .number-input-container{
+        display: flex;
+        align-items:center;
+        margin-bottom: 2.4rem;
+
+        .number {
+          margin-right: 1rem;
+        }
+      }
+    }
   }
 }
