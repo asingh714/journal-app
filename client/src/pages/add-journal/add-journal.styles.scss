@@ -82,6 +82,11 @@
           font-size: 3rem;
         }
       }
+
+      .button-container {
+        display: flex;
+        justify-content: flex-end;
+      }
     }
   }
 }

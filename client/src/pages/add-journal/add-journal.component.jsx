@@ -194,38 +194,52 @@ const AddJournalEntry = ({
           </div>
 
           <h2 className="heading">Evening</h2>
-          <span>Three amazing things that happened today</span>
-          <span>1: </span>
-          <input
-            name="amazing_one"
-            onChange={handleChanges}
-            type="text"
-            value={addFormInput.amazing_one || ""}
-          />
-          <span>2: </span>
-          <input
-            name="amazing_two"
-            onChange={handleChanges}
-            type="text"
-            value={addFormInput.amazing_two || ""}
-          />
-          <span>3: </span>
-          <input
-            name="amazing_three"
-            onChange={handleChanges}
-            type="text"
-            value={addFormInput.amazing_three || ""}
-          />
+          <span className="subheading">
+            Three amazing things that happened today
+          </span>
+          <div className="number-input-container">
+            <span className="number">1:</span>
+            <FormInput
+              name="amazing_one"
+              onChange={handleChanges}
+              type="text"
+              value={addFormInput.amazing_one || ""}
+              isLong
+            />
+          </div>
+          <div className="number-input-container">
+            <span className="number">2:</span>
+            <FormInput
+              name="amazing_two"
+              onChange={handleChanges}
+              type="text"
+              value={addFormInput.amazing_two || ""}
+              isLong
+            />
+          </div>
+          <div className="number-input-container">
+            <span className="number">3:</span>
+            <FormInput
+              name="amazing_three"
+              onChange={handleChanges}
+              type="text"
+              value={addFormInput.amazing_three || ""}
+              isLong
+            />
+          </div>
 
-          <span>What could have made today even better?</span>
-          <input
+          <span className="subheading">
+            What could have made today even better?
+          </span>
+          <FormInput
             name="better"
             onChange={handleChanges}
             type="text"
             value={addFormInput.better || ""}
+            isSingle
           />
 
-          <span>How I feel right now:</span>
+          <span className="subheading">How I feel right now:</span>
           <div className="emoji-container">
             <label>
               <input
@@ -287,9 +301,14 @@ const AddJournalEntry = ({
               </span>
             </label>
           </div>
-
-          <button onClick={routeToJournalPage}>Cancel</button>
-          <button onClick={handleSubmit}>Save</button>
+          <div className="button-container">
+            <CustomButton isDelete onClick={routeToJournalPage}>
+              Cancel
+            </CustomButton>
+            <CustomButton isBigEdit onClick={handleSubmit}>
+              Save
+            </CustomButton>
+          </div>
         </form>
       </form>
     </form>

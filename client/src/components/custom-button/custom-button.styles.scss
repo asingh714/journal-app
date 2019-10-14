@@ -47,3 +47,17 @@
   background-color: var(--cream-can);
   color: var(--spicy-mustard);
 }
+
+.big-edit-button {
+  background-color: var(--cream-can);
+  color: var(--spicy-mustard);
+  padding: 1rem 3rem;
+  border-radius: 3px;
+  margin-left: 2rem;
+
+  transition: all 0.3s;
+
+  &:hover {
+    box-shadow: 1px 2px 5px rgba(black, 0.15);
+  }
+}
