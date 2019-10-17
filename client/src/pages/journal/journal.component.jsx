@@ -30,9 +30,7 @@ const Journal = ({ fetchEntries, entries, ...props }) => {
         </CustomButton>
         <div className="journal-entries-container">
           {entries.map(entry => (
-            <>
-              <Entry key={entry.id} entry={entry} {...props} />
-            </>
+            <Entry key={entry.id} entry={entry} {...props} />
           ))}
         </div>
       </div>
