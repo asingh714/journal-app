@@ -15,5 +15,13 @@
       justify-content: space-evenly;
       margin: 3.6rem 0;
     }
+
+    .spinner {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      color: #204963;
+    }
   }
 }
