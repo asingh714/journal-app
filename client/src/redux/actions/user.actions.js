@@ -37,3 +37,17 @@ export const registerUser = credentials => dispatch => {
     dispatch({ type: USER_REGISTER_FAILURE });
   })
 };
+
+export const USER_SIGNOUT_START = "USER_SIGNOUT_START";
+export const USER_SIGNOUT_SUCCESS = "USER_SIGNOUT_SUCCESS";
+
+export const logoutUser = () => dispatch => {
+  dispatch({ type: USER_SIGNOUT_START })
+
+  let token = localStorage.getItem("token")
+
+  if(token) {
+    localStorage.removeItem('token');
+    dispatch({ type: USER_SIGNOUT_SUCCESS })
+  }
+}

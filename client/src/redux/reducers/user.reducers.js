@@ -4,11 +4,12 @@ import {
   USER_LOGIN_FAILURE,
   USER_REGISTER_START,
   USER_REGISTER_SUCCESS,
-  USER_REGISTER_FAILURE
+  USER_REGISTER_FAILURE,
+  USER_SIGNOUT_START,
+  USER_SIGNOUT_SUCCESS
 } from "../actions/user.actions";
 
 const initialState = {
-  token: "",
   isLoggingIn: false,
   isLoggedIn: false,
   error: ""
@@ -20,7 +21,6 @@ const userReducer = (state = initialState, action) => {
     case USER_REGISTER_START:
       return {
         ...state,
-        token: "",
         isLoggingIn: true,
         isLoggedIn: false,
         error: ""
@@ -29,7 +29,6 @@ const userReducer = (state = initialState, action) => {
     case USER_REGISTER_SUCCESS:
       return {
         ...state,
-        token: action.payload,
         isLoggingIn: false,
         isLoggedIn: true,
         error: ""
@@ -38,11 +37,24 @@ const userReducer = (state = initialState, action) => {
     case USER_REGISTER_FAILURE:
       return {
         ...state,
-        token: "",
         isLoggingIn: false,
         isLoggedIn: false,
         error: ""
       };
+    case USER_SIGNOUT_START: 
+      return {
+        ...state,
+        isLoggingIn: false,
+        isLoggedIn: true,
+        error: ""
+      }
+    case USER_SIGNOUT_SUCCESS: 
+      return {
+        ...state,
+        isLoggingIn: false,
+        isLoggedIn: false,
+        error: ""
+      }
     default:
       return state;
   }
