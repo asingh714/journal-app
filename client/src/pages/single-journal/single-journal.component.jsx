@@ -29,132 +29,181 @@ const SingleJournal = ({ entry, fetchSingleEntry, ...props }) => {
     feel_two
   } = entry;
   return (
-    <div className="single-journal-container">
-      <h2>Morning</h2>
-      <span>{moment(date).subtract(10, 'days').calendar()}</span>
-      <span>I am grateful for...</span>
-      <span>1: {grateful_one}</span>
-      <span>2: {grateful_two}</span>
-      <span>3: {grateful_three}</span>
-      <span>What would make today great?</span>
-      <span>1: {great_one}</span>
-      <span>2: {great_two}</span>
-      <span>3: {great_three}</span>
-      <span>Daily Affirmation</span>
-      <span>{daily_affirmation}</span>
-      <span>How I feel right now:</span>
-      <span>{feel_one}</span>
+    <div className="single-journal-page">
+      <div className="single-journal-container">
+        <h2 className="heading">Morning</h2>
+        <span className="date">
+          {moment(date)
+            .subtract(10, "days")
+            .calendar()}
+        </span>
+        <span className="dark-text">I am grateful for...</span>
 
-      <input
-        type="radio"
-        id="emoji_one"
-        checked={feel_one === 1 ? true : false}
-      />
-      <label htmlFor="emoji_one">
-        <span role="img" aria-label="pouting face">
-          😡
-        </span>
-      </label>
-      <input
-        type="radio"
-        id="emoji_two"
-        checked={feel_one === 2 ? true : false}
-      />
-      <label htmlFor="emoji_two">
-        <span role="img" aria-label="sad pensive face">
-          😔
-        </span>
-      </label>
-      <input
-        type="radio"
-        id="emoji_three"
-        checked={feel_one === 3 ? true : false}
-      />
-      <label htmlFor="emoji_three">
-        <span role="img" aria-label="neutral face">
-          😐
-        </span>
-      </label>
-      <input
-        type="radio"
-        id="emoji_four"
-        checked={feel_one === 4 ? true : false}
-      />
-      <label htmlFor="emoji_four">
-        <span role="img" aria-label="slightly smiling face">
-          🙂
-        </span>
-      </label>
-      <input
-        type="radio"
-        id="emoji_five"
-        checked={feel_one === 5 ? true : false}
-      />
-      <label htmlFor="emoji_five">
-        <span role="img" aria-label="grinning face with open mouth">
-          😃
-        </span>
-      </label>
+        <div className="number-text-container">
+          <span className="number light-text">1:</span>
+          <span className="light-text">{grateful_one}</span>
+        </div>
+        <div className="number-text-container">
+          <span className="number light-text">2:</span>
+          <span className="light-text">{grateful_two}</span>
+        </div>
 
-      <h2>Evening</h2>
-      <span>Three amazing things that happened today</span>
-      <span>1: {amazing_one}</span>
-      <span>2: {amazing_two}</span>
-      <span>3: {amazing_three}</span>
-      <span>What could have made today even better?</span>
-      <span>{better}</span>
-      <span>How I feel right now:</span>
-      <span>{feel_two}</span>
-      <input
-        type="radio"
-        id="emoji_one"
-        checked={feel_two === 1 ? true : false}
-      />
-      <label htmlFor="emoji_one">
-        <span role="img" aria-label="pouting face">
-          😡
+        <div className="number-text-container">
+          <span className="number light-text">3:</span>
+          <span className="light-text">{grateful_three}</span>
+        </div>
+
+        <span className="dark-text">What would make today great?</span>
+        <div className="number-text-container">
+          <span className="number light-text">1:</span>
+          <span className="light-text">{great_one}</span>
+        </div>
+        <div className="number-text-container">
+          <span className="number light-text">2:</span>
+          <span className="light-text">{great_two}</span>
+        </div>
+
+        <div className="number-text-container">
+          <span className="number light-text">3:</span>
+          <span className="light-text">{great_three}</span>
+        </div>
+
+        <span className="dark-text">Daily Affirmation</span>
+        <span className="light-text extra-left">{daily_affirmation}</span>
+        <span className="dark-text">How I feel right now:</span>
+        <div className="emoji-container">
+          <input type="radio" id="emoji_one" />
+          <label htmlFor="emoji_one">
+            <span
+              role="img"
+              aria-label="pouting face"
+              className={`${feel_one === 1 ? "checked" : ""} `}
+            >
+              😡
+            </span>
+          </label>
+          <input type="radio" id="emoji_two" />
+          <label htmlFor="emoji_two">
+            <span
+              role="img"
+              aria-label="sad pensive face"
+              className={`${feel_one === 2 ? "checked" : ""} `}
+            >
+              😔
+            </span>
+          </label>
+          <input type="radio" id="emoji_three" />
+          <label htmlFor="emoji_three">
+            <span
+              role="img"
+              aria-label="neutral face"
+              className={`${feel_one === 3 ? "checked" : ""} `}
+            >
+              😐
+            </span>
+          </label>
+          <input type="radio" id="emoji_four" />
+          <label htmlFor="emoji_four">
+            <span
+              role="img"
+              aria-label="slightly smiling face"
+              className={`${feel_one === 4 ? "checked" : ""} `}
+            >
+              🙂
+            </span>
+          </label>
+          <input type="radio" id="emoji_five" />
+          <label htmlFor="emoji_five">
+            <span
+              role="img"
+              aria-label="grinning face with open mouth"
+              className={`${feel_one === 5 ? "checked" : ""} `}
+            >
+              😃
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div className="line"></div>
+
+      <div className="single-journal-container">
+        <h2 className="heading">Evening</h2>
+        <span className="dark-text">
+          Three amazing things that happened today
         </span>
-      </label>
-      <input
-        type="radio"
-        id="emoji_two"
-        checked={feel_two === 2 ? true : false}
-      />
-      <label htmlFor="emoji_two">
-        <span role="img" aria-label="sad pensive face">
-          😔
+        <div className="number-text-container">
+          <span className="number light-text">1:</span>
+          <span className="light-text">{amazing_one}</span>
+        </div>
+        <div className="number-text-container">
+          <span className="number light-text">2:</span>
+          <span className="light-text">{amazing_two}</span>
+        </div>
+
+        <div className="number-text-container">
+          <span className="number light-text">3:</span>
+          <span className="light-text">{amazing_three}</span>
+        </div>
+
+        <span className="dark-text">
+          What could have made today even better?
         </span>
-      </label>
-      <input
-        type="radio"
-        id="emoji_three"
-        checked={feel_two === 3 ? true : false}
-      />
-      <label htmlFor="emoji_three">
-        <span role="img" aria-label="neutral face">
-          😐
-        </span>
-      </label>
-      <input
-        type="radio"
-        id="emoji_four"
-        checked={feel_two === 4 ? true : false}
-      />
-      <label htmlFor="emoji_four">
-        <span role="img" aria-label="slightly smiling face">
-          🙂
-        </span>
-      </label>
-      <input
-        type="radio"
-        id="emoji_five"
-        checked={feel_two === 5 ? true : false}
-      />
-      <label htmlFor="emoji_five">
-        <span role="img" aria-label="grinning face with open mouth">
-          😃
-        </span>
-      </label>
+        <span className="light-text extra-left">{better}</span>
+        <span>How I feel right now:</span>
+        <div className="emoji-container">
+          <input type="radio" id="emoji_one" />
+          <label htmlFor="emoji_one">
+            <span
+              role="img"
+              aria-label="pouting face"
+              className={`${feel_two === 1 ? "checked" : ""} `}
+            >
+              😡
+            </span>
+          </label>
+          <input type="radio" id="emoji_two" />
+          <label htmlFor="emoji_two">
+            <span
+              role="img"
+              aria-label="sad pensive face"
+              className={`${feel_two === 2 ? "checked" : ""} `}
+            >
+              😔
+            </span>
+          </label>
+          <input type="radio" id="emoji_three" />
+          <label htmlFor="emoji_three">
+            <span
+              role="img"
+              aria-label="neutral face"
+              className={`${feel_two === 3 ? "checked" : ""} `}
+            >
+              😐
+            </span>
+          </label>
+          <input type="radio" id="emoji_four" />
+          <label htmlFor="emoji_four">
+            <span
+              role="img"
+              aria-label="slightly smiling face"
+              className={`${feel_two === 4 ? "checked" : ""} `}
+            >
+              🙂
+            </span>
+          </label>
+          <input type="radio" id="emoji_five" />
+          <label htmlFor="emoji_five">
+            <span
+              role="img"
+              aria-label="grinning face with open mouth"
+              className={`${feel_two === 5 ? "checked" : ""} `}
+            >
+              😃
+            </span>
+          </label>
+        </div>
+      </div>
     </div>
   );
 };
