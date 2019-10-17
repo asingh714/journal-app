@@ -5,8 +5,10 @@ import useForm from "../../customHooks/useForm";
 import { editJournalEntry } from "../../redux/actions/entries.actions";
 import { fetchQuotes } from "../../redux/actions/quote.actions";
 
+
 import CustomButton from "../../components/custom-button/custom-button.component";
 import FormInput from "../../components/form-input/form-input.component";
+import {formatDate} from "../../utils/formatDate";
 
 import "./edit-journal.styles.scss";
 
@@ -54,6 +56,8 @@ const EditJournalEntry = ({
     props.history.push("/journal");
   };
 
+  
+
   return (
     <div className="edit-journal-container">
       <div className="quote-journal-entry-container">
@@ -68,7 +72,7 @@ const EditJournalEntry = ({
             name="date"
             onChange={handleChanges}
             type="date"
-            value={editFormInput.date || ""}
+            value={formatDate(editFormInput.date) || ""}
             isShort
           />
           <span className="subheading">I am grateful for...</span>

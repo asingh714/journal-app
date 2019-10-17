@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 
 import { fetchSingleEntry } from "../../redux/actions/entries.actions";
+import "./single-journal.styles.scss";
 
 const SingleJournal = ({ entry, fetchSingleEntry, ...props }) => {
   const id = props.match.params.id;
@@ -28,7 +29,7 @@ const SingleJournal = ({ entry, fetchSingleEntry, ...props }) => {
     feel_two
   } = entry;
   return (
-    <>
+    <div className="single-journal-container">
       <h2>Morning</h2>
       <span>{moment(date).subtract(10, 'days').calendar()}</span>
       <span>I am grateful for...</span>
@@ -154,7 +155,7 @@ const SingleJournal = ({ entry, fetchSingleEntry, ...props }) => {
           😃
         </span>
       </label>
-    </>
+    </div>
   );
 };
 

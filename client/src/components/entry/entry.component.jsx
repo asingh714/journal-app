@@ -78,7 +78,7 @@ const Entry = props => {
         <div onClick={e => routeToSpecifcJournalPage(e, props.entry.id)}>
           <span className="date">
             {moment(props.entry.date)
-              .subtract(10, "days")
+              .add(1, "days")
               .calendar()}
           </span>
           <div className="feelings-container">
