@@ -1,28 +1,30 @@
+@import "../../variables.scss";
+
 .benefit-card {
   background-color: white;
   width: 25rem;
   height: 25rem;
   padding: 1rem;
   margin-bottom: 7.2rem;
-
-
-  // &:not(:last-child) {
-  //   margin-right: 10rem;
-  // }
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-shadow: 0 4px 18px rgba(black, 0.20);
+  box-shadow: 0 4px 18px rgba(black, 0.2);
+
+  @media only screen and (max-width: $bp-medium-small) {
+    width: 80%;
+    margin-bottom: 5rem;
+  }
 
   .benefit-icon {
     width: 11.5rem;
   }
 
-  h4, img {
-    margin-bottom: .8rem;
+  h4,
+  img {
+    margin-bottom: 0.8rem;
   }
 
   span {
