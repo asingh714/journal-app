@@ -37,8 +37,8 @@ const Homepage = ({ history }) => {
       <div className="how-it-works-section">
         <h2 className="how-it-works-heading skinny-heading">How it works</h2>
         <h3 className="how-it-works-sub-heading skinny-heading">
-          MyJournal is comprised of two sections &mdash; a morning <br />
-          section and an evening section.
+          MyJournal is comprised of two sections &mdash; a morning section and
+          an evening section.
         </h3>
         <div className="morning-section">
           <img src={Sun} alt="Sun" className="icon-sun" />
