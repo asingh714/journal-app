@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 header {
   .yellow-line {
     height: 0.5rem;
@@ -14,10 +16,20 @@ header {
     margin: auto;
     margin-top: 3.2rem;
     margin-bottom: 4rem;
-    z-index: 10;
+    // z-index: 10;
+
+    @media only screen and (max-width: $bp-medium) {
+      width: 100%;
+      flex-direction: column;
+      margin-bottom: 2rem;
+    }
 
     .logo {
       width: 200px;
+
+      @media only screen and (max-width: $bp-medium) {
+        margin-bottom: 1.6rem;
+      }
     }
   }
 }
