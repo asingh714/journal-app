@@ -145,8 +145,16 @@
 .testimonial-section {
   padding: 10rem 1rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    padding: 5rem 1rem;
+  }
+
   h2 {
     margin-bottom: 8rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      margin-bottom: 4rem;
+    }
   }
 
   .testimonial-img-quote {
@@ -164,6 +172,14 @@
     font-size: 2.6rem;
     line-height: 1.8;
     color: var(--gray);
+
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.6rem;
+    }
   }
 
   img {

@@ -1,16 +1,32 @@
+@import "../../variables.scss";
+
 footer {
   background-color: var(--cream-can);
   padding: 4.8rem 0;
 
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3.2rem 0;
+  }
+
   .sub-footer-container {
     max-width: 120rem;
     margin: 0 auto;
+
+    .nav-container {
+      @media only screen and (max-width: $bp-medium) {
+        display: none;
+      }
+    }
 
     .copyright {
       font-weight: bold;
       text-align: center;
       margin-top: 3.2rem;
       color: var(--gray);
+
+      @media only screen and (max-width: $bp-medium) {
+        margin-top: 0rem;
+      }
     }
   }
 }

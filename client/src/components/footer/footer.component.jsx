@@ -7,7 +7,9 @@ const Footer = () => {
   return (
     <footer>
       <div className="sub-footer-container">
-        <Nav />
+        <div className="nav-container">
+          <Nav />
+        </div>
         <p className="copyright">
           Copyright © 2019 MyJournal. All Rights Reserved.
         </p>
