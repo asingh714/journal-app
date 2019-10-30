@@ -53,7 +53,7 @@ const LogInAndSignUp = ({ loginUser, registerUser, history }) => {
               value={loginInput.password || ""}
               isShort
             />
-            <CustomButton isWideButton onClick={handleLoginSubmit}>
+            <CustomButton isSuperWide onClick={handleLoginSubmit}>
               Login
             </CustomButton>
           </form>
@@ -92,7 +92,7 @@ const LogInAndSignUp = ({ loginUser, registerUser, history }) => {
               value={signinInput.password || ""}
               isShort
             />
-            <CustomButton isWideButton onClick={handleSigninSubmit}>
+            <CustomButton isSuperWide onClick={handleSigninSubmit}>
               Submit
             </CustomButton>
           </form>

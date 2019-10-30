@@ -8,6 +8,7 @@ const CustomButton = ({
   isDelete,
   isEdit,
   isBigEdit,
+  isSuperWide,
   children,
   ...props
 }) => {
@@ -17,7 +18,9 @@ const CustomButton = ({
         isEdit ? "edit-button" : ""
       } ${isBigEdit ? "big-edit-button" : ""} ${
         isWideButton ? "wide-button" : ""
-      } ${isRounded ? "rounded-button" : ""}`}
+      } ${isRounded ? "rounded-button" : ""}
+        ${isSuperWide ? "super-wide-button" : ""}
+      `}
       {...props}
     >
       {children}

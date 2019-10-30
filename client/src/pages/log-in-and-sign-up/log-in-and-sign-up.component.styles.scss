@@ -1,23 +1,41 @@
+@import "../../variables.scss";
+
 .page-container {
   height: 100vh;
   background-color: var(--alabaster);
   padding: 4rem 0;
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 2rem 0;
+    margin-bottom: 5rem;
+  }
 
   .log-in-sign-in-quote-container {
     background-color: white;
     max-width: 80rem;
     margin: 0 auto;
 
-
     .form-container {
       display: flex;
       justify-content: space-around;
       padding: 3rem;
 
+      @media only screen and (max-width: $bp-small) {
+        flex-direction: column;
+        width: 100%;
+        padding: 2rem 0;
+      }
+
       .log-in-container,
       .sign-in-container {
         display: flex;
         flex-direction: column;
+
+        @media only screen and (max-width: $bp-small) {
+          margin-bottom: 4rem;
+          width: 100%;
+          align-items: center;
+        }
 
         .header {
           font-weight: 600;
@@ -30,6 +48,10 @@
       width: 100%;
       height: 3px;
       background-color: var(--alabaster);
+
+      @media only screen and (max-width: $bp-medium) {
+        display: none;
+      }
     }
 
     .testimonial-quote {
@@ -37,7 +59,11 @@
       padding: 4.8rem 0;
       display: flex;
       justify-content: center;
-      font-size: 2.0rem;
+      font-size: 2rem;
+
+      @media only screen and (max-width: $bp-medium-small) {
+        display: none;
+      }
     }
 
     .user-img-container {

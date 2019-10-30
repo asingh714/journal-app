@@ -1,14 +1,15 @@
+@import "../../variables.scss";
+
 .form-input {
   padding: 1rem 2rem;
   // margin-bottom: 2.4rem;
   background-color: var(--alabaster);
   border: 1px solid var(--mercury);
   font-size: 1.6rem;
-  color: #B1B1B1;
-  
+  color: #b1b1b1;
 
   &::placeholder {
-    color: #B1B1B1;
+    color: #b1b1b1;
     font-size: 1.6rem;
   }
 }
@@ -16,6 +17,18 @@
 .short-input {
   width: 25rem;
   margin-bottom: 2.4rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    width: 90%;
+  }
+
+  @media only screen and (max-width: $bp-medium-small) {
+    width: 80%;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    // width: 100%;
+  }
 }
 
 .long-input {
