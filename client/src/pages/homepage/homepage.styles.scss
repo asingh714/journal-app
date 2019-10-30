@@ -1,3 +1,8 @@
+.skinny-heading {
+  font-weight: normal;
+  text-align: center;
+}
+
 .hero-section {
   background-image: url(../../assets/Hero.png);
   background-size: cover;
@@ -24,12 +29,6 @@
   flex-direction: column;
   max-width: 100rem;
   margin: 0 auto;
-
-  .how-it-works-heading,
-  .how-it-works-sub-heading {
-    font-weight: normal;
-    text-align: center;
-  }
 
   .how-it-works-heading {
     margin-bottom: 2.4rem;

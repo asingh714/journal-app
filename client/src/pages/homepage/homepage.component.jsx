@@ -35,10 +35,10 @@ const Homepage = ({ history }) => {
       </main>
 
       <div className="how-it-works-section">
-        <h2 className="how-it-works-heading">How it works</h2>
-        <h3 className="how-it-works-sub-heading">
-          MyJournal is comprised of two sections -- a morning <br /> section and
-          an evening section.
+        <h2 className="how-it-works-heading skinny-heading">How it works</h2>
+        <h3 className="how-it-works-sub-heading skinny-heading">
+          MyJournal is comprised of two sections &mdash; a morning <br />
+          section and an evening section.
         </h3>
         <div className="morning-section">
           <img src={Sun} alt="Sun" className="icon-sun" />
@@ -63,7 +63,7 @@ const Homepage = ({ history }) => {
       </div>
 
       <div className="benefits-section">
-        <h2>Benefits</h2>
+        <h2 className="skinny-heading">Benefits</h2>
         <div className="top-row">
           <BenefitCard image={Money} heading="Free" alt="Money Icon">
             MyJournal is a free product with unlimited journal posts
@@ -95,7 +95,7 @@ const Homepage = ({ history }) => {
       </div>
 
       <div className="testimonial-section">
-        <h2>Meet our customers</h2>
+        <h2 className="skinny-heading">Meet our customers</h2>
         <div className="testimonial-img-quote">
           <img src={Testimonial} alt="Happy Customer" />
           <span className="quote">
