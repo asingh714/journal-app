@@ -23,18 +23,15 @@ const Homepage = ({ history }) => {
   return (
     <div className="main-container">
       <main className="hero-section">
-        <div className="hero-text-container">
-          <h1 className="main-heading">
-            Your morning and evening journal. <br /> Secure, free and online.
-          </h1>
-          <h2 className="sub-heading">
-            A science back method to increase <br /> happiness and reduce
-            stress.
-          </h2>
-          <CustomButton isWideButton onClick={navigateToLoginPage}>
-            Sign Up
-          </CustomButton>
-        </div>
+        <h1 className="main-heading">
+          Your morning and evening journal. <br /> Secure, free and online.
+        </h1>
+        <h2 className="sub-heading">
+          A science back method to increase <br /> happiness and reduce stress.
+        </h2>
+        <CustomButton isWideButton onClick={navigateToLoginPage}>
+          Sign Up
+        </CustomButton>
       </main>
 
       <div className="how-it-works-section">
