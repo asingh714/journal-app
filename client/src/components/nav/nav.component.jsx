@@ -1,14 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { withRouter } from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 
 import { logoutUser } from "../../redux/actions/user.actions";
 
 import "./nav.styles.scss";
 
-const Nav = ({ isLoggedIn, logoutUser, ...props }) => {
-
+const Nav = ({ entries, logoutUser, ...props }) => {
   const logout = () => {
     logoutUser();
     props.history.push("/");
@@ -19,9 +18,9 @@ const Nav = ({ isLoggedIn, logoutUser, ...props }) => {
       <NavLink exact to="/">
         Home
       </NavLink>
-      <NavLink to="/journal">Journal</NavLink>
-      <NavLink to="/signin" onClick={isLoggedIn ? logout : null}>
-        {isLoggedIn ? "Sign Out" : "Login / Sign Up"}
+      {entries.length ? <NavLink to="/journal">Journal</NavLink> : null}
+      <NavLink to="/signin" onClick={entries.length ? logout : null}>
+        {entries.length ? "Sign Out" : "Login / Sign Up"}
       </NavLink>
     </nav>
   );
@@ -29,11 +28,13 @@ const Nav = ({ isLoggedIn, logoutUser, ...props }) => {
 
 const mapStateToProps = state => {
   return {
-    isLoggedIn: state.user.isLoggedIn
+    entries: state.entries.entries
   };
 };
 
-export default withRouter(connect(
-  mapStateToProps,
-  { logoutUser }
-)(Nav));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { logoutUser }
+  )(Nav)
+);

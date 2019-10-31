@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { loginUser, registerUser } from "../../redux/actions/user.actions";
@@ -11,18 +11,22 @@ import UserImg from "../../assets/User-Image.png";
 
 import "./log-in-and-sign-up.component.styles.scss";
 
-const LogInAndSignUp = ({ loginUser, registerUser, history }) => {
+const LogInAndSignUp = ({ loginUser, registerUser, isLoggedIn, history }) => {
   const handleLogin = event => {
     if (event) event.preventDefault();
     loginUser(loginInput);
-    history.push("/journal");
   };
 
   const handleSignin = event => {
     if (event) event.preventDefault();
     registerUser(signinInput);
-    history.push("/journal");
   };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      history.push("/journal");
+    }
+  }, [isLoggedIn, history]);
 
   const [loginInput, handleLoginChanges, handleLoginSubmit] = useForm(
     handleLogin
@@ -115,7 +119,13 @@ const LogInAndSignUp = ({ loginUser, registerUser, history }) => {
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.user.isLoggedIn
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { loginUser, registerUser }
 )(LogInAndSignUp);

@@ -48,7 +48,7 @@ const Journal = ({ fetchEntries, entries, isFetching, ...props }) => {
 const mapStateToProps = state => {
   return {
     entries: state.entries.entries,
-    isFetching: state.entries.isFetching
+    isFetching: state.entries.isFetching, 
   };
 };
 
