@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import moment from "moment";
 
 import useForm from "../../customHooks/useForm";
 import { editJournalEntry } from "../../redux/actions/entries.actions";
 import { fetchQuotes } from "../../redux/actions/quote.actions";
 
-
 import CustomButton from "../../components/custom-button/custom-button.component";
 import FormInput from "../../components/form-input/form-input.component";
-import {formatDate} from "../../utils/formatDate";
+import { formatDate } from "../../utils/formatDate";
 
 import "./edit-journal.styles.scss";
 
@@ -31,7 +31,7 @@ const EditJournalEntry = ({
 
   const { match, entries } = props;
   const id = match.params.id;
-  
+
   const handleEditJournalEntry = event => {
     if (event) event.preventDefault();
     editJournalEntry(id, editFormInput);
@@ -57,8 +57,6 @@ const EditJournalEntry = ({
     props.history.push("/journal");
   };
 
-  
-
   return (
     <div className="edit-journal-container">
       <div className="quote-journal-entry-container">
@@ -74,6 +72,12 @@ const EditJournalEntry = ({
             onChange={handleChanges}
             type="date"
             value={formatDate(editFormInput.date) || ""}
+            // value={
+            //   editFormInput.date.setTime(
+            //     editFormInput.date.getTime() +
+            //       editFormInput.date.getTimezoneOffset() * 60 * 1000
+            //   ) || ""
+            // }
             isShort
           />
           <span className="subheading">I am grateful for...</span>
