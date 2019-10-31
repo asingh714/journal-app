@@ -45,6 +45,7 @@ const EditJournalEntry = ({
     setEditFormInput
   ] = useForm(handleEditJournalEntry);
 
+  console.log(editFormInput);
   useEffect(() => {
     const entriesToUpdate = entries.find(entry => `${entry.id}` === id);
     if (entriesToUpdate) {
@@ -72,12 +73,6 @@ const EditJournalEntry = ({
             onChange={handleChanges}
             type="date"
             value={formatDate(editFormInput.date) || ""}
-            // value={
-            //   editFormInput.date.setTime(
-            //     editFormInput.date.getTime() +
-            //       editFormInput.date.getTimezoneOffset() * 60 * 1000
-            //   ) || ""
-            // }
             isShort
           />
           <span className="subheading">I am grateful for...</span>
@@ -162,7 +157,11 @@ const EditJournalEntry = ({
                 type="radio"
                 value={1}
               />
-              <span role="img" aria-label="pouting face">
+              <span
+                role="img"
+                aria-label="pouting face"
+                className={`${editFormInput.feel_one === 1 ? "selected" : ""} `}
+              >
                 😡
               </span>
             </label>
@@ -174,7 +173,11 @@ const EditJournalEntry = ({
                 type="radio"
                 value={2}
               />
-              <span role="img" aria-label="sad pensive face">
+              <span
+                role="img"
+                aria-label="sad pensive face"
+                className={`${editFormInput.feel_one === 2 ? "selected" : ""} `}
+              >
                 😔
               </span>
             </label>
@@ -186,7 +189,11 @@ const EditJournalEntry = ({
                 type="radio"
                 value={3}
               />
-              <span role="img" aria-label="neutral face">
+              <span
+                role="img"
+                aria-label="neutral face"
+                className={`${editFormInput.feel_one === 3 ? "selected" : ""} `}
+              >
                 😐
               </span>
             </label>
@@ -198,7 +205,11 @@ const EditJournalEntry = ({
                 type="radio"
                 value={4}
               />
-              <span role="img" aria-label="slightly smiling face">
+              <span
+                role="img"
+                aria-label="slightly smiling face"
+                className={`${editFormInput.feel_one === 4 ? "selected" : ""} `}
+              >
                 🙂
               </span>
             </label>
@@ -210,7 +221,11 @@ const EditJournalEntry = ({
                 type="radio"
                 value={5}
               />
-              <span role="img" aria-label="grinning face with open mouth">
+              <span
+                role="img"
+                aria-label="grinning face with open mouth"
+                className={`${editFormInput.feel_one === 5 ? "selected" : ""} `}
+              >
                 😃
               </span>
             </label>
@@ -271,7 +286,11 @@ const EditJournalEntry = ({
                 type="radio"
                 value={1}
               />
-              <span role="img" aria-label="pouting face">
+              <span
+                role="img"
+                aria-label="pouting face"
+                className={`${editFormInput.feel_two === 1 ? "selected" : ""} `}
+              >
                 😡
               </span>
             </label>
@@ -283,7 +302,11 @@ const EditJournalEntry = ({
                 type="radio"
                 value={2}
               />
-              <span role="img" aria-label="sad pensive face">
+              <span
+                role="img"
+                aria-label="sad pensive face"
+                className={`${editFormInput.feel_two === 2 ? "selected" : ""} `}
+              >
                 😔
               </span>
             </label>
@@ -295,7 +318,11 @@ const EditJournalEntry = ({
                 type="radio"
                 value={3}
               />
-              <span role="img" aria-label="neutral face">
+              <span
+                role="img"
+                aria-label="neutral face"
+                className={`${editFormInput.feel_two === 3 ? "selected" : ""} `}
+              >
                 😐
               </span>
             </label>
@@ -307,7 +334,11 @@ const EditJournalEntry = ({
                 type="radio"
                 value={4}
               />
-              <span role="img" aria-label="slightly smiling face">
+              <span
+                role="img"
+                aria-label="slightly smiling face"
+                className={`${editFormInput.feel_two === 4 ? "selected" : ""} `}
+              >
                 🙂
               </span>
             </label>
@@ -319,7 +350,11 @@ const EditJournalEntry = ({
                 type="radio"
                 value={5}
               />
-              <span role="img" aria-label="grinning face with open mouth">
+              <span
+                role="img"
+                aria-label="grinning face with open mouth"
+                className={`${editFormInput.feel_two === 5 ? "selected" : ""} `}
+              >
                 😃
               </span>
             </label>

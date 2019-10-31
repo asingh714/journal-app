@@ -57,7 +57,7 @@
         justify-content: space-between;
         margin: 2rem auto;
         width: 60%;
-        
+
         input {
           display: none;
 
@@ -65,7 +65,7 @@
             background: var(--alabaster);
             border: 1px solid var(--mercury);
             box-shadow: 1px 3px 5px rgba(black, 0.15);
-            padding: .5rem 1rem;
+            padding: 0.5rem 1rem;
             border-radius: 3px;
           }
 
@@ -73,12 +73,21 @@
             background: var(--alabaster);
             border: 1px solid var(--mercury);
             box-shadow: 1px 3px 10px rgba(black, 0.25);
-            padding: .5rem 1rem;
+            padding: 0.5rem 1rem;
             border-radius: 3px;
           }
         }
+
         span {
           font-size: 3rem;
+        }
+
+        .selected {
+          background: var(--alabaster);
+          border: 1px solid var(--mercury);
+          box-shadow: 1px 3px 10px rgba(black, 0.25);
+          padding: 0.5rem 1rem;
+          border-radius: 3px;
         }
       }
 
