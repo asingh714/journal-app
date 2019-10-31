@@ -2,19 +2,15 @@
   background-color: var(--alabaster);
   height: 100vh;
   padding: 4rem 10rem;
-
+  
+  
   .journal-and-button-container {
     background-color: white;
     padding: 4rem;
     display: flex;
     flex-direction: column;
-
-    .journal-entries-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      margin: 3.6rem 0;
-    }
+    max-width: 100rem;
+    margin: 0 auto;
 
     .spinner {
       display: flex;
@@ -22,6 +18,14 @@
       justify-content: center;
       align-items: center;
       color: #204963;
+    }
+
+    .journal-entries-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 3.6rem 0;
+      flex-wrap: wrap;
     }
   }
 }

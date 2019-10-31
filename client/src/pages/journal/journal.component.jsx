@@ -28,7 +28,6 @@ const Journal = ({ fetchEntries, entries, isFetching, ...props }) => {
         <CustomButton isRounded onClick={routeToAddJournalEntry}>
           Add Journal Entry
         </CustomButton>
-        {/* {entries.length < 1 && <h2>There are no entries</h2>} */}
         {isFetching && (
           <div className="key spinner">
             <Loader type="Puff" color="#f7d070" height="60" width="60" />
