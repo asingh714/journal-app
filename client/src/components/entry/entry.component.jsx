@@ -78,8 +78,8 @@ const Entry = props => {
         <div onClick={e => routeToSpecifcJournalPage(e, props.entry.id)}>
           <span className="date">
             {moment(props.entry.date)
-              .add(1, "days")
-              .calendar()}
+              .utc()
+              .format("MMM Do YYYY")}
           </span>
           <div className="feelings-container">
             <div className="feel-container top text">
@@ -104,7 +104,10 @@ const Entry = props => {
           </CustomButton>
         </div>
       </div>
-      <div className={`${isVisible ? "delete-container" : ""}` } onClick={toggleDelete}>
+      <div
+        className={`${isVisible ? "delete-container" : ""}`}
+        onClick={toggleDelete}
+      >
         {isVisible && (
           <DeleteModal toggleDelete={toggleDelete} deleteId={props.entry.id} />
         )}

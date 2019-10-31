@@ -34,8 +34,8 @@ const SingleJournal = ({ entry, fetchSingleEntry, ...props }) => {
         <h2 className="heading">Morning</h2>
         <span className="date">
           {moment(date)
-            .subtract(10, "days")
-            .calendar()}
+          .utc()
+          .format("MMM Do YYYY")}
         </span>
         <span className="dark-text">I am grateful for...</span>
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router-dom";
@@ -13,6 +13,7 @@ const Nav = ({ entries, logoutUser, ...props }) => {
     props.history.push("/");
   };
 
+  
   return (
     <nav>
       <NavLink exact to="/">

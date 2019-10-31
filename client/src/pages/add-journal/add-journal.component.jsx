@@ -29,6 +29,7 @@ const AddJournalEntry = ({
   const handleAddJournalEntry = event => {
     if (event) event.preventDefault();
     addJournalEntry(addFormInput);
+    props.history.push("/journal");
   };
 
   const [addFormInput, handleChanges, handleSubmit] = useForm(
@@ -310,7 +311,7 @@ const AddJournalEntry = ({
             </CustomButton>
           </div>
         </form>
-      </div >
+      </div>
     </div>
   );
 };

@@ -31,6 +31,7 @@ const EditJournalEntry = ({
 
   const { match, entries } = props;
   const id = match.params.id;
+  
   const handleEditJournalEntry = event => {
     if (event) event.preventDefault();
     editJournalEntry(id, editFormInput);
