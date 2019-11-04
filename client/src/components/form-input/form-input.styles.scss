@@ -26,9 +26,6 @@
     width: 80%;
   }
 
-  @media only screen and (max-width: $bp-small) {
-    // width: 100%;
-  }
 }
 
 .long-input {
@@ -37,8 +34,4 @@
 
 .single-input {
   margin-bottom: 2.4rem;
-}
-
-.is-danger {
-  border: 1px solid red;
 }

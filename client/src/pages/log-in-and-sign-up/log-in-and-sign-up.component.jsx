@@ -3,10 +3,9 @@ import { connect } from "react-redux";
 
 import { loginUser, registerUser } from "../../redux/actions/user.actions";
 import useForm from "../../customHooks/useForm";
-
+import validate from "../../utils/loginFormValidationRules";
 import CustomButton from "../../components/custom-button/custom-button.component";
 import FormInput from "../../components/form-input/form-input.component";
-
 import UserImg from "../../assets/User-Image.png";
 
 import "./log-in-and-sign-up.component.styles.scss";
@@ -28,12 +27,20 @@ const LogInAndSignUp = ({ loginUser, registerUser, isLoggedIn, history }) => {
     }
   }, [isLoggedIn, history]);
 
-  const [loginInput, handleLoginChanges, handleLoginSubmit] = useForm(
-    handleLogin
-  );
-  const [signinInput, handleSigninChanges, handleSigninSubmit] = useForm(
-    handleSignin
-  );
+  const [
+    loginInput,
+    handleLoginChanges,
+    handleLoginSubmit,
+    setLoginVals,
+    loginErrors
+  ] = useForm(handleLogin, validate);
+  const [
+    signinInput,
+    handleSigninChanges,
+    handleSigninSubmit,
+    setSignInVals,
+    signInErrors
+  ] = useForm(handleSignin, validate);
 
   return (
     <div className="page-container">
@@ -41,6 +48,9 @@ const LogInAndSignUp = ({ loginUser, registerUser, isLoggedIn, history }) => {
         <div className="form-container">
           <form className="log-in-container">
             <h2 className="header">Login</h2>
+            {loginErrors.username && (
+              <span className="form-error">{loginErrors.username}</span>
+            )}
             <FormInput
               name="username"
               placeholder="Username"
@@ -49,6 +59,9 @@ const LogInAndSignUp = ({ loginUser, registerUser, isLoggedIn, history }) => {
               value={loginInput.username || ""}
               isShort
             />
+            {loginErrors.password && (
+              <span className="form-error">{loginErrors.password}</span>
+            )}
             <FormInput
               name="password"
               placeholder="Password"
@@ -64,6 +77,10 @@ const LogInAndSignUp = ({ loginUser, registerUser, isLoggedIn, history }) => {
 
           <form className="sign-in-container">
             <h2 className="header">Sign Up</h2>
+
+            {signInErrors.name && (
+              <span className="form-error">{signInErrors.name}</span>
+            )}
             <FormInput
               name="name"
               placeholder="Name"
@@ -72,6 +89,9 @@ const LogInAndSignUp = ({ loginUser, registerUser, isLoggedIn, history }) => {
               value={signinInput.name || ""}
               isShort
             />
+            {signInErrors.email && (
+              <span className="form-error">{signInErrors.email}</span>
+            )}
             <FormInput
               name="email"
               placeholder="Email"
@@ -80,6 +100,9 @@ const LogInAndSignUp = ({ loginUser, registerUser, isLoggedIn, history }) => {
               value={signinInput.email || ""}
               isShort
             />
+            {signInErrors.username && (
+              <span className="form-error">{signInErrors.username}</span>
+            )}
             <FormInput
               name="username"
               placeholder="Username"
@@ -88,6 +111,9 @@ const LogInAndSignUp = ({ loginUser, registerUser, isLoggedIn, history }) => {
               value={signinInput.username || ""}
               isShort
             />
+            {signInErrors.username && (
+              <span className="form-error">{signInErrors.password}</span>
+            )}
             <FormInput
               name="password"
               placeholder="Password"
