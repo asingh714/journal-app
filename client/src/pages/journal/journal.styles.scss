@@ -1,9 +1,15 @@
+@import "../../variables.scss";
+
 .journal-page-container {
   background-color: var(--alabaster);
   height: 100vh;
   padding: 4rem 10rem;
-  
-  
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 1rem;
+    height: auto;
+  }
+
   .journal-and-button-container {
     background-color: white;
     padding: 4rem;
@@ -11,6 +17,10 @@
     flex-direction: column;
     max-width: 100rem;
     margin: 0 auto;
+
+    @media only screen and (max-width: $bp-medium) {
+      padding: 1rem;
+    }
 
     .spinner {
       display: flex;
@@ -26,6 +36,14 @@
       justify-content: space-between;
       margin: 3.6rem 0;
       flex-wrap: wrap;
+
+      @media only screen and (max-width: $bp-medium-small) {
+        justify-content: space-evenly;
+      }
+
+      @media only screen and (max-width: $bp-small) {
+        justify-content: center;
+      }
     }
   }
 }

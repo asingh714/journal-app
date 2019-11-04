@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import Loader from "react-loader-spinner";
 
 import "./journal.styles.scss";
 
 import Entry from "../../components/entry/entry.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
-import Loader from "react-loader-spinner";
 import { fetchEntries } from "../../redux/actions/entries.actions";
 
 const Journal = ({ fetchEntries, entries, isFetching, ...props }) => {
