@@ -11,7 +11,7 @@ const Footer = () => {
           <Nav />
         </div>
         <p className="copyright">
-          Copyright © 2019 MyJournal. All Rights Reserved.
+          Copyright © 2020 MyJournal. All Rights Reserved.
         </p>
       </div>
     </footer>

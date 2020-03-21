@@ -99,6 +99,7 @@ router.post("/login", (req, res) => {
 router.get("/test", (req, res) => {
   db("users")
     .then(users => {
+      console.log(users)
       res.status(200).json(users);
     })
     .catch(error => {

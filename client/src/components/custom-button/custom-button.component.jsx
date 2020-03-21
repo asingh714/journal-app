@@ -19,7 +19,7 @@ const CustomButton = ({
       } ${isBigEdit ? "big-edit-button" : ""} ${
         isWideButton ? "wide-button" : ""
       } ${isRounded ? "rounded-button" : ""}
-        ${isSuperWide ? "super-wide-button" : ""}
+         ${isSuperWide ? "super-wide-button" : ""}
       `}
       {...props}
     >
