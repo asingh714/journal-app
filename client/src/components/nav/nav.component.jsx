@@ -19,7 +19,7 @@ const Nav = ({ entries, logoutUser, isLoggedIn, ...props }) => {
       <NavLink exact to="/">
         Home
       </NavLink>
-      {entries.length ? <NavLink to="/journal">Journal</NavLink> : null}
+      {isLoggedIn ? <NavLink to="/journal">Journal</NavLink> : null}
       <NavLink to="/signin" onClick={isLoggedIn ? logout : null}>
         {isLoggedIn ? "Sign Out" : "Login / Sign Up"}
       </NavLink>
