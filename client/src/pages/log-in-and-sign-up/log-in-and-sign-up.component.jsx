@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { loginUser, registerUser } from "../../redux/actions/user.actions";
 import useForm from "../../customHooks/useForm";
-import validate from "../../utils/loginFormValidationRules";
+import {validateLogin, validateSignUp} from "../../utils/loginFormValidationRules";
 import CustomButton from "../../components/custom-button/custom-button.component";
 import FormInput from "../../components/form-input/form-input.component";
 import UserImg from "../../assets/User-Image.png";
@@ -33,14 +33,14 @@ const LogInAndSignUp = ({ loginUser, registerUser, isLoggedIn, history }) => {
     handleLoginSubmit,
     setLoginVals,
     loginErrors
-  ] = useForm(handleLogin, validate);
+  ] = useForm(handleLogin, validateLogin);
   const [
     signinInput,
     handleSigninChanges,
     handleSigninSubmit,
     setSignInVals,
     signInErrors
-  ] = useForm(handleSignin, validate);
+  ] = useForm(handleSignin, validateSignUp);
 
   return (
     <div className="page-container">

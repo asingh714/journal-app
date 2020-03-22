@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import moment from "moment";
 
 import useForm from "../../customHooks/useForm";
 import { editJournalEntry } from "../../redux/actions/entries.actions";

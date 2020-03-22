@@ -1,4 +1,4 @@
-export default function validate(values) {
+export function validateSignUp(values) {
   let errors = {};
   if (!values.username) {
     errors.username = 'Username is required';    
@@ -15,6 +15,22 @@ export default function validate(values) {
   if (!values.name) {
     errors.name = 'Name is required';
   } 
+  
+  if (!values.password) {
+    errors.password = 'Password is required';
+  } else if (values.password.length < 7) {
+    errors.password = 'Password must be seven or more characters';
+  }
+  return errors;
+};
+
+export function validateLogin(values) {
+  let errors = {};
+  if (!values.username) {
+    errors.username = 'Username is required';    
+  } else if (values.username.length < 7) {
+    errors.username = "Username must be seven or more characters"
+  }
   
   if (!values.password) {
     errors.password = 'Password is required';
