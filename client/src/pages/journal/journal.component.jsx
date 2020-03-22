@@ -35,6 +35,7 @@ const Journal = ({ fetchEntries, entries, isFetching, ...props }) => {
           </div>
         )}
         <div className="journal-entries-container">
+          {entries.length < 1 ? <h2>Your journal has no entries.</h2> : null}
           {entries.map(entry => (
             <Entry key={entry.id} entry={entry} {...props} />
           ))}
