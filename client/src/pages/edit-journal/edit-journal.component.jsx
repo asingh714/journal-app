@@ -44,7 +44,6 @@ const EditJournalEntry = ({
     setEditFormInput
   ] = useForm(handleEditJournalEntry);
 
-  console.log(editFormInput);
   useEffect(() => {
     const entriesToUpdate = entries.find(entry => `${entry.id}` === id);
     if (entriesToUpdate) {

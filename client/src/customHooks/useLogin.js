@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
 
-const useForm = (callback) => {
+const useLogin = (callback, validate = null) => {
   const [values, setValues] = useState({});
+  const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    if (isSubmitting) {
+    if (Object.keys(errors).length === 0 && isSubmitting) {
       callback();
     }
-  }, [isSubmitting]);
+  }, [errors]);
 
   const handleSubmit = event => {
     if (event) event.preventDefault();
+    if (validate) setErrors(validate(values));
     setIsSubmitting(true);
   };
 
@@ -20,14 +22,11 @@ const useForm = (callback) => {
 
     setValues({
       ...values,
-      [event.target.name]:
-        event.target.name === "feel_one" || event.target.name === "feel_two"
-          ? parseInt(event.target.value)
-          : event.target.value
+      [event.target.name]: event.target.value
     });
   };
 
-  return [values, handleChange, handleSubmit, setValues];
+  return [values, handleChange, handleSubmit, setValues, errors];
 };
 
-export default useForm;
+export default useLogin;

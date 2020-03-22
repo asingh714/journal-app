@@ -32,7 +32,7 @@ const AddJournalEntry = ({
     props.history.push("/journal");
   };
 
-  const [addFormInput, handleChanges, handleSubmit] = useForm(
+  const [addFormInput, handleChanges, handleSubmit, setAddFormInput] = useForm(
     handleAddJournalEntry
   );
 
