@@ -11,7 +11,7 @@ import {
 
 const initialState = {
   isLoggingIn: false,
-  isLoggedIn: false,
+  isLoggedIn: false || localStorage.getItem("token") ? true : false,
   error: ""
 };
 
