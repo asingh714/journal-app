@@ -30,7 +30,6 @@ function App({ isLoggedIn }) {
               <Route path="/journal/:id" component={SingleJournal} />
               <Route path="/add-journal-entry" component={AddJournal} />
               <Route path="/edit-journal-entry/:id" component={EditJournal} />
-              <Route component={NoMatch} />
             </>
           )}
           <Route component={NoMatch} />
