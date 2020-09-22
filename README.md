@@ -46,7 +46,7 @@
 	- Open with Sketch
 
 #### Login Details 
-- To view a pre-existing prison page
+- To view a pre-existing journal page
 	- **Username:** 
 	- **Password:**
 
