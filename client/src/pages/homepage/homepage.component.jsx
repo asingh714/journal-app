@@ -37,7 +37,7 @@ const Homepage = ({ history }) => {
       <div className="how-it-works-section">
         <h2 className="how-it-works-heading skinny-heading">How it works</h2>
         <h3 className="how-it-works-sub-heading skinny-heading">
-          MyJournal is comprised of two sections &mdash; a morning section and
+        myJournal is comprised of two sections &mdash; a morning section and
           an evening section.
         </h3>
         <div className="morning-section">
@@ -66,14 +66,14 @@ const Homepage = ({ history }) => {
         <h2 className="skinny-heading">Benefits</h2>
         <div className="top-row">
           <BenefitCard image={Money} heading="Free" alt="Money Icon">
-            MyJournal is a free product with unlimited journal posts
+          myJournal is a free product with unlimited journal posts
           </BenefitCard>
           <BenefitCard image={Heart} heading="Health" alt="Health Icon">
             Daily journaling has show to increase positive moods and gratitude
           </BenefitCard>
           <BenefitCard image={Lock} heading="Private" alt="Lock Icon">
             Unlike a traditional journal, only the user will have access to
-            MyJournal
+            myJournal
           </BenefitCard>
         </div>
         <div className="bottom-row">
@@ -82,14 +82,14 @@ const Homepage = ({ history }) => {
             heading="Online"
             alt="Web Browser Icon"
           >
-            MyJournal can be accessed anywhere with an internet connection
+            myJournal can be accessed anywhere with an internet connection
           </BenefitCard>
           <BenefitCard
             image={Layers}
             heading="Organized"
             alt="Organzied Layers Icon"
           >
-            MyJournal is organized and lets you to access all entries with ease
+            myJournal is organized and lets you to access all entries with ease
           </BenefitCard>
         </div>
       </div>
@@ -99,7 +99,7 @@ const Homepage = ({ history }) => {
         <div className="testimonial-img-quote">
           <img src={Testimonial} alt="Happy Customer" />
           <span className="quote">
-            “MyJournal has completed changed the way I function on a day to day
+          myJournal has completed changed the way I function on a day to day
             basis. I look forward to my journal entries each morning and
             evening!“
             <br />

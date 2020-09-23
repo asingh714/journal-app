@@ -132,7 +132,7 @@ const LogInAndSignUp = ({ loginUser, registerUser, isLoggedIn, history }) => {
 
         <div className="testimonial-quote">
           <span className="quote">
-            “The MyJournal app has made me at least 25% happier”
+            “The myJournal app has made me at least 25% happier”
             <br />
             <div className="user-img-container">
               <span className="user">— Luke Williams</span>
